@@ -1,0 +1,177 @@
+﻿using CapaEntidad;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CapaAccesoDatos
+{
+    public class datInsumo
+    {
+        #region Singleton
+        // Patrón Singleton
+        private static readonly datInsumo _instancia = new datInsumo();
+        public static datInsumo Instancia
+        {
+            get { return _instancia; }
+        }
+        #endregion
+
+        #region Métodos
+
+        // ==============================
+        // LISTAR INSUMOS
+        // ==============================
+        public List<entInsumo> ListarInsumo()
+        {
+            SqlCommand cmd = null;
+            List<entInsumo> lista = new List<entInsumo>();
+
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar(); // Llama a tu clase de conexión (Singleton)
+                cmd = new SqlCommand("spListarInsumo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    entInsumo ins = new entInsumo();
+                    ins.idInsumo = Convert.ToInt32(dr["idInsumo"]);
+                    ins.nombreInsumo = dr["nombreInsumo"].ToString();
+                    ins.unidadMedida = dr["unidadMedida"].ToString();
+                    ins.cantidad = Convert.ToDecimal(dr["cantidad"]);
+                    ins.precioUnitario = Convert.ToDecimal(dr["precioUnitario"]);
+                    ins.estInsumo = Convert.ToBoolean(dr["estInsumo"]);
+                    ins.fecRegistro = Convert.ToDateTime(dr["fecRegistro"]);
+
+                    lista.Add(ins);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return lista;
+        }
+        // ==============================
+        // INSERTAR INSUMO
+        // ==============================
+        public bool InsertarInsumo(entInsumo ins)
+        {
+            SqlCommand cmd = null;
+            bool insertado = false;
+
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spInsertarInsumo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@nombreInsumo", ins.nombreInsumo);
+                cmd.Parameters.AddWithValue("@unidadMedida", ins.unidadMedida);
+                cmd.Parameters.AddWithValue("@cantidad", ins.cantidad);
+                cmd.Parameters.AddWithValue("@precioUnitario", ins.precioUnitario);
+                cmd.Parameters.AddWithValue("@estInsumo", ins.estInsumo);
+                cmd.Parameters.AddWithValue("@fecRegistro", ins.fecRegistro);
+
+                cn.Open();
+                int filas = cmd.ExecuteNonQuery();
+                if (filas > 0)
+                    insertado = true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+            return insertado;
+        }
+
+        // ==============================
+        // EDITAR INSUMO
+        // ==============================
+        public bool EditarInsumo(entInsumo ins)
+        {
+            SqlCommand cmd = null;
+            bool editado = false;
+
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spEditarInsumo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@idInsumo", ins.idInsumo);
+                cmd.Parameters.AddWithValue("@nombreInsumo", ins.nombreInsumo);
+                cmd.Parameters.AddWithValue("@unidadMedida", ins.unidadMedida);
+                cmd.Parameters.AddWithValue("@cantidad", ins.cantidad);
+                cmd.Parameters.AddWithValue("@precioUnitario", ins.precioUnitario);
+                cmd.Parameters.AddWithValue("@estInsumo", ins.estInsumo);
+                cmd.Parameters.AddWithValue("@fecRegistro", ins.fecRegistro);
+
+                cn.Open();
+                int filas = cmd.ExecuteNonQuery();
+                if (filas > 0)
+                    editado = true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+            return editado;
+        }
+
+        // ==============================
+        // DESHABILITAR INSUMO
+        // ==============================
+        public bool DeshabilitarInsumo(int idInsumo)
+        {
+            SqlCommand cmd = null;
+            bool deshabilitado = false;
+
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spDeshabilitarInsumo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idInsumo", idInsumo);
+
+                cn.Open();
+                int filas = cmd.ExecuteNonQuery();
+                if (filas > 0)
+                    deshabilitado = true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+            return deshabilitado;
+        }
+
+        #endregion
+    }
+}

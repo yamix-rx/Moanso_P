@@ -1,0 +1,11 @@
+D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaLogica\bin\Debug\CapaLogica.dll
+D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaLogica\bin\Debug\CapaLogica.pdb
+D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaLogica\bin\Debug\CapaAccesoDatos.dll
+D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaLogica\bin\Debug\CapaEntidad.dll
+D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaLogica\bin\Debug\CapaAccesoDatos.pdb
+D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaLogica\bin\Debug\CapaEntidad.pdb
+D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaLogica\obj\Debug\CapaLogica.csproj.AssemblyReference.cache
+D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaLogica\obj\Debug\CapaLogica.csproj.CoreCompileInputs.cache
+D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaLogica\obj\Debug\CapaLogica.csproj.Up2Date
+D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaLogica\obj\Debug\CapaLogica.dll
+D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaLogica\obj\Debug\CapaLogica.pdb

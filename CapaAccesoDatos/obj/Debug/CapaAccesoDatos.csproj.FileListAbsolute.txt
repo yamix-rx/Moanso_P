@@ -1,0 +1,9 @@
+D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaAccesoDatos\bin\Debug\CapaAccesoDatos.dll
+D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaAccesoDatos\bin\Debug\CapaAccesoDatos.pdb
+D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaAccesoDatos\bin\Debug\CapaEntidad.dll
+D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaAccesoDatos\bin\Debug\CapaEntidad.pdb
+D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.csproj.AssemblyReference.cache
+D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.csproj.CoreCompileInputs.cache
+D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaAccesoDatos\obj\Debug\CapaAcce.1AD5E18C.Up2Date
+D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.dll
+D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.pdb
