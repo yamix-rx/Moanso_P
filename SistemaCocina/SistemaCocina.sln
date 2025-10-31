@@ -1,15 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36203.30 d17.14
+VisualStudioVersion = 17.14.36203.30
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaCocina", "SistemaCocina.csproj", "{9D88A9D5-5421-45A5-969B-069EAB46F3EE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F25373E6-4D66-407B-8B1D-8868CB5D7748} = {F25373E6-4D66-407B-8B1D-8868CB5D7748}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaAccesoDatos", "..\CapaAccesoDatos\CapaAccesoDatos.csproj", "{6FE0CDFC-F778-4F0B-810B-AF1682E2908B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaEntidad", "..\CapaEntidad\CapaEntidad.csproj", "{7A563B45-A8B1-47A4-98C6-D8E2F5451D13}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaLogica", "..\CapaLogica\CapaLogica.csproj", "{8B172F2C-D825-471F-8FA4-251DF69CF6E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sistema", "..\..\..\..\Downloads\Yenci_parte\Sistema.csproj", "{F25373E6-4D66-407B-8B1D-8868CB5D7748}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +38,10 @@ Global
 		{8B172F2C-D825-471F-8FA4-251DF69CF6E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B172F2C-D825-471F-8FA4-251DF69CF6E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B172F2C-D825-471F-8FA4-251DF69CF6E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F25373E6-4D66-407B-8B1D-8868CB5D7748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F25373E6-4D66-407B-8B1D-8868CB5D7748}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F25373E6-4D66-407B-8B1D-8868CB5D7748}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F25373E6-4D66-407B-8B1D-8868CB5D7748}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

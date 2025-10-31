@@ -4,3 +4,9 @@ D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaEntidad\obj\Debug\CapaEntidad.
 D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
 D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaEntidad\obj\Debug\CapaEntidad.dll
 D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaEntidad\obj\Debug\CapaEntidad.pdb
+C:\Users\USUARIO\Source\Repos\Moanso_P\CapaEntidad\bin\Debug\CapaEntidad.dll
+C:\Users\USUARIO\Source\Repos\Moanso_P\CapaEntidad\bin\Debug\CapaEntidad.pdb
+C:\Users\USUARIO\Source\Repos\Moanso_P\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+C:\Users\USUARIO\Source\Repos\Moanso_P\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Source\Repos\Moanso_P\CapaEntidad\obj\Debug\CapaEntidad.dll
+C:\Users\USUARIO\Source\Repos\Moanso_P\CapaEntidad\obj\Debug\CapaEntidad.pdb

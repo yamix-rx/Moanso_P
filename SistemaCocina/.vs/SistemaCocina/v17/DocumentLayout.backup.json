@@ -1,26 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Anthony\\Descargas\\Moanso_Proyecto\\Moanso_P\\SistemaCocina\\",
+  "WorkspaceRootPath": "C:\\Users\\USUARIO\\source\\repos\\Moanso_P\\SistemaCocina\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9D88A9D5-5421-45A5-969B-069EAB46F3EE}|SistemaCocina.csproj|d:\\anthony\\descargas\\moanso_proyecto\\moanso_p\\sistemacocina\\mantenedorinsumo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9D88A9D5-5421-45A5-969B-069EAB46F3EE}|SistemaCocina.csproj|solutionrelative:mantenedorinsumo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F25373E6-4D66-407B-8B1D-8868CB5D7748}|..\\..\\..\\..\\Downloads\\Yenci_parte\\Sistema.csproj|c:\\users\\usuario\\downloads\\yenci_parte\\menuprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9D88A9D5-5421-45A5-969B-069EAB46F3EE}|SistemaCocina.csproj|d:\\anthony\\descargas\\moanso_proyecto\\moanso_p\\sistemacocina\\mantenedorinsumo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D88A9D5-5421-45A5-969B-069EAB46F3EE}|SistemaCocina.csproj|solutionrelative:mantenedorinsumo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6FE0CDFC-F778-4F0B-810B-AF1682E2908B}|..\\CapaAccesoDatos\\CapaAccesoDatos.csproj|d:\\anthony\\descargas\\moanso_proyecto\\moanso_p\\capaaccesodatos\\datinsumo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B172F2C-D825-471F-8FA4-251DF69CF6E8}|..\\CapaLogica\\CapaLogica.csproj|d:\\anthony\\descargas\\moanso_proyecto\\moanso_p\\capalogica\\loginsumo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A563B45-A8B1-47A4-98C6-D8E2F5451D13}|..\\CapaEntidad\\CapaEntidad.csproj|d:\\anthony\\descargas\\moanso_proyecto\\moanso_p\\capaentidad\\entinsumo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6FE0CDFC-F778-4F0B-810B-AF1682E2908B}|..\\CapaAccesoDatos\\CapaAccesoDatos.csproj|d:\\anthony\\descargas\\moanso_proyecto\\moanso_p\\capaaccesodatos\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6FE0CDFC-F778-4F0B-810B-AF1682E2908B}|..\\CapaAccesoDatos\\CapaAccesoDatos.csproj|c:\\users\\usuario\\source\\repos\\moanso_p\\capaaccesodatos\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,83 +16,35 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MantenedorInsumo.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\Anthony\\Descargas\\Moanso_Proyecto\\Moanso_P\\SistemaCocina\\MantenedorInsumo.cs",
-              "RelativeDocumentMoniker": "MantenedorInsumo.cs",
-              "ToolTip": "D:\\Anthony\\Descargas\\Moanso_Proyecto\\Moanso_P\\SistemaCocina\\MantenedorInsumo.cs [Dise\u00F1o]",
-              "RelativeToolTip": "MantenedorInsumo.cs [Dise\u00F1o]",
+              "Title": "MenuPrincipal.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\Yenci_parte\\MenuPrincipal.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Downloads\\Yenci_parte\\MenuPrincipal.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\Yenci_parte\\MenuPrincipal.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\Downloads\\Yenci_parte\\MenuPrincipal.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T15:20:34.922Z",
+              "WhenOpened": "2025-10-31T03:17:36.266Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MantenedorInsumo.cs",
-              "DocumentMoniker": "D:\\Anthony\\Descargas\\Moanso_Proyecto\\Moanso_P\\SistemaCocina\\MantenedorInsumo.cs",
-              "RelativeDocumentMoniker": "MantenedorInsumo.cs",
-              "ToolTip": "D:\\Anthony\\Descargas\\Moanso_Proyecto\\Moanso_P\\SistemaCocina\\MantenedorInsumo.cs",
-              "RelativeToolTip": "MantenedorInsumo.cs",
-              "ViewState": "AgIAAJ4AAAAAAAAAAAAqwLcAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T15:13:07.849Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "datInsumo.cs",
-              "DocumentMoniker": "D:\\Anthony\\Descargas\\Moanso_Proyecto\\Moanso_P\\CapaAccesoDatos\\datInsumo.cs",
-              "RelativeDocumentMoniker": "..\\CapaAccesoDatos\\datInsumo.cs",
-              "ToolTip": "D:\\Anthony\\Descargas\\Moanso_Proyecto\\Moanso_P\\CapaAccesoDatos\\datInsumo.cs",
-              "RelativeToolTip": "..\\CapaAccesoDatos\\datInsumo.cs",
-              "ViewState": "AgIAAI0AAAAAAAAAAAAkwJEAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T14:45:50.06Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "logInsumo.cs",
-              "DocumentMoniker": "D:\\Anthony\\Descargas\\Moanso_Proyecto\\Moanso_P\\CapaLogica\\logInsumo.cs",
-              "RelativeDocumentMoniker": "..\\CapaLogica\\logInsumo.cs",
-              "ToolTip": "D:\\Anthony\\Descargas\\Moanso_Proyecto\\Moanso_P\\CapaLogica\\logInsumo.cs",
-              "RelativeToolTip": "..\\CapaLogica\\logInsumo.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAQwC0AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T14:18:16.707Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "entInsumo.cs",
-              "DocumentMoniker": "D:\\Anthony\\Descargas\\Moanso_Proyecto\\Moanso_P\\CapaEntidad\\entInsumo.cs",
-              "RelativeDocumentMoniker": "..\\CapaEntidad\\entInsumo.cs",
-              "ToolTip": "D:\\Anthony\\Descargas\\Moanso_Proyecto\\Moanso_P\\CapaEntidad\\entInsumo.cs",
-              "RelativeToolTip": "..\\CapaEntidad\\entInsumo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T14:17:47.852Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "Conexion.cs",
-              "DocumentMoniker": "D:\\Anthony\\Descargas\\Moanso_Proyecto\\Moanso_P\\CapaAccesoDatos\\Conexion.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\Moanso_P\\CapaAccesoDatos\\Conexion.cs",
               "RelativeDocumentMoniker": "..\\CapaAccesoDatos\\Conexion.cs",
-              "ToolTip": "D:\\Anthony\\Descargas\\Moanso_Proyecto\\Moanso_P\\CapaAccesoDatos\\Conexion.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\Moanso_P\\CapaAccesoDatos\\Conexion.cs",
               "RelativeToolTip": "..\\CapaAccesoDatos\\Conexion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T14:17:21.985Z",
+              "WhenOpened": "2025-10-31T03:04:26.406Z",
               "EditorCaption": ""
             }
           ]

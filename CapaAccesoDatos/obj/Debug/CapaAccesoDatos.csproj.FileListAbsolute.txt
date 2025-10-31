@@ -7,3 +7,12 @@ D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaAccesoDatos\obj\Debug\CapaAcce
 D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaAccesoDatos\obj\Debug\CapaAcce.1AD5E18C.Up2Date
 D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.dll
 D:\Anthony\Descargas\Moanso_Proyecto\Moanso_P\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.pdb
+C:\Users\USUARIO\Source\Repos\Moanso_P\CapaAccesoDatos\bin\Debug\CapaAccesoDatos.dll
+C:\Users\USUARIO\Source\Repos\Moanso_P\CapaAccesoDatos\bin\Debug\CapaAccesoDatos.pdb
+C:\Users\USUARIO\Source\Repos\Moanso_P\CapaAccesoDatos\bin\Debug\CapaEntidad.dll
+C:\Users\USUARIO\Source\Repos\Moanso_P\CapaAccesoDatos\bin\Debug\CapaEntidad.pdb
+C:\Users\USUARIO\Source\Repos\Moanso_P\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.csproj.AssemblyReference.cache
+C:\Users\USUARIO\Source\Repos\Moanso_P\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Source\Repos\Moanso_P\CapaAccesoDatos\obj\Debug\CapaAcce.1AD5E18C.Up2Date
+C:\Users\USUARIO\Source\Repos\Moanso_P\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.dll
+C:\Users\USUARIO\Source\Repos\Moanso_P\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.pdb
