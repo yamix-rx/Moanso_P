@@ -3,10 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\USUARIO\\source\\repos\\Moanso_P\\SistemaCocina\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F25373E6-4D66-407B-8B1D-8868CB5D7748}|..\\..\\..\\..\\Downloads\\Yenci_parte\\Sistema.csproj|c:\\users\\usuario\\downloads\\yenci_parte\\menuprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{6FE0CDFC-F778-4F0B-810B-AF1682E2908B}|..\\CapaAccesoDatos\\CapaAccesoDatos.csproj|c:\\users\\usuario\\source\\repos\\moanso_p\\capaaccesodatos\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6FE0CDFC-F778-4F0B-810B-AF1682E2908B}|..\\CapaAccesoDatos\\CapaAccesoDatos.csproj|c:\\users\\usuario\\source\\repos\\moanso_p\\capaaccesodatos\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F25373E6-4D66-407B-8B1D-8868CB5D7748}|..\\..\\..\\..\\Downloads\\Yenci_parte\\Sistema.csproj|c:\\users\\usuario\\downloads\\yenci_parte\\menuprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -16,7 +16,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -24,7 +24,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MenuPrincipal.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\Yenci_parte\\MenuPrincipal.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Downloads\\Yenci_parte\\MenuPrincipal.cs",
@@ -36,13 +36,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Conexion.cs",
               "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\Moanso_P\\CapaAccesoDatos\\Conexion.cs",
               "RelativeDocumentMoniker": "..\\CapaAccesoDatos\\Conexion.cs",
               "ToolTip": "C:\\Users\\USUARIO\\source\\repos\\Moanso_P\\CapaAccesoDatos\\Conexion.cs",
               "RelativeToolTip": "..\\CapaAccesoDatos\\Conexion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-31T03:04:26.406Z",
               "EditorCaption": ""
