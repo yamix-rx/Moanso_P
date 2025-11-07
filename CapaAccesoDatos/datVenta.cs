@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,124 +12,188 @@ namespace CapaAccesoDatos
 {
     public class datVenta
     {
+        private const string NOMBRE_ARCHIVO = "RegistroDeVentas.txt";
+        private static readonly string RUTA_BASE = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        private static readonly string RUTA_ARCHIVO = Path.Combine(RUTA_BASE, NOMBRE_ARCHIVO);
+        private const string SEPARADOR_VENTA = "=================================================";
+
+        // =================================================================================
+        // 1. REGISTRAR VENTA (Guardar en TXT)
+        // =================================================================================
         public bool RegistrarVenta(entVenta venta, entCliente cliente)
         {
-            bool registrado = false;
-            SqlConnection cn = Conexion.Instancia.Conectar();
-            SqlTransaction tr = null;
-
             try
             {
-                cn.Open();
-                tr = cn.BeginTransaction();
+                StringBuilder sb = new StringBuilder();
 
-                // 1. REGISTRAR O BUSCAR CLIENTE
-                int idCliente;
+                // 1. Cabecera del Registro
+                sb.AppendLine(SEPARADOR_VENTA); // Inicia con el separador
+                sb.AppendLine($"FECHA REGISTRO: {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
+                sb.AppendLine($"TIPO VENTA: {venta.TipoVenta}");
+                sb.AppendLine($"TOTAL A PAGAR: {venta.TotalPagar:C}");
+                sb.AppendLine("-------------------------------------------------");
 
-                SqlCommand cmdCliente = new SqlCommand("INSERT INTO Cliente (DNI, Nombre, Apellido) VALUES (@DNI, @Nom, @Ap)", cn, tr);
-                cmdCliente.Parameters.AddWithValue("@DNI", cliente.DNI);
-                cmdCliente.Parameters.AddWithValue("@Nom", cliente.Nombre);
-                cmdCliente.Parameters.AddWithValue("@Ap", cliente.Apellido);
-                cmdCliente.ExecuteNonQuery();
+                // 2. Datos del Cliente
+                sb.AppendLine("CLIENTE:");
+                sb.AppendLine($"  DNI: {cliente.DNI}");
+                sb.AppendLine($"  Nombre: {cliente.Nombre} {cliente.Apellido}");
+                sb.AppendLine("-------------------------------------------------");
 
-                // 🚨 SOLUCIÓN 1: Manejar la posible devolución de NULL en SCOPE_IDENTITY() para Cliente
-                SqlCommand cmdIdCli = new SqlCommand("SELECT SCOPE_IDENTITY()", cn, tr);
-                object resultadoIdCliente = cmdIdCli.ExecuteScalar();
+                // 3. Detalles de la Venta (Productos)
+                sb.AppendLine("DETALLE DEL PEDIDO:");
 
-                if (resultadoIdCliente == DBNull.Value || resultadoIdCliente == null)
-                {
-                    // Forzar excepción para que se ejecute Rollback
-                    throw new Exception("Fallo en la inserción del Cliente. SCOPE_IDENTITY() devolvió NULL.");
-                }
-                idCliente = Convert.ToInt32(resultadoIdCliente);
-                venta.IdCliente = idCliente;
-
-                // 2. INSERTAR CABECERA DE VENTA
-                SqlCommand cmdVenta = new SqlCommand("INSERT INTO Venta (IdCliente, IdUsuario, FechaVenta, TipoComprobante, TipoVenta, TotalPagar, Estado) VALUES (@IdCli, @IdUsr, @Fecha, @TipoComp, @TipoVenta, @Total, @Est); SELECT SCOPE_IDENTITY()", cn, tr);
-                cmdVenta.Parameters.AddWithValue("@IdCli", venta.IdCliente);
-                cmdVenta.Parameters.AddWithValue("@IdUsr", 1); // Asumimos ID de Usuario/Mozo fijo
-                cmdVenta.Parameters.AddWithValue("@Fecha", venta.FechaVenta);
-                cmdVenta.Parameters.AddWithValue("@TipoComp", "Ticket");
-                cmdVenta.Parameters.AddWithValue("@TipoVenta", venta.TipoVenta);
-                cmdVenta.Parameters.AddWithValue("@Total", venta.TotalPagar);
-                cmdVenta.Parameters.AddWithValue("@Est", "Registrada");
-
-                // 🚨 SOLUCIÓN 2: Manejar la posible devolución de NULL en SCOPE_IDENTITY() para Venta
-                object resultadoIdVenta = cmdVenta.ExecuteScalar();
-
-                if (resultadoIdVenta == DBNull.Value || resultadoIdVenta == null)
-                {
-                    // Forzar excepción para que se ejecute Rollback
-                    throw new Exception("Fallo en la inserción de la Cabecera de Venta. SCOPE_IDENTITY() devolvió NULL.");
-                }
-                int idVenta = Convert.ToInt32(resultadoIdVenta);
-
-
-                // 3. INSERTAR DETALLES DE VENTA (Iterando sobre entItemPedido)
+                int itemIndex = 1;
                 foreach (var item in venta.DetalleVenta)
                 {
-                    SqlCommand cmdDetalle = new SqlCommand("INSERT INTO DetalleVenta (IdVenta, IdProducto, Cantidad, PrecioUnitario, Observacion) VALUES (@IdVenta, @IdProd, @Cant, @Precio, @Obs)", cn, tr);
-                    cmdDetalle.Parameters.AddWithValue("@IdVenta", idVenta);
-                    cmdDetalle.Parameters.AddWithValue("@IdProd", item.IdProducto);
-                    cmdDetalle.Parameters.AddWithValue("@Cant", item.Cantidad);
-                    cmdDetalle.Parameters.AddWithValue("@Precio", item.Costo);
+                    // Asumimos que tienes la propiedad NombreProducto en entItemPedido para el TXT
+                    string nombreProd = (item is entItemPedido itemPedido) ? itemPedido.NombreProducto : "Producto Desconocido";
+                    string observacion = string.IsNullOrWhiteSpace(item.Observacion) ? "-" : item.Observacion;
 
-                    // ✅ Manejo de Observación (ya corregido)
-                    cmdDetalle.Parameters.AddWithValue("@Obs",
-                        string.IsNullOrWhiteSpace(item.Observacion) ? (object)DBNull.Value : item.Observacion);
-
-                    cmdDetalle.ExecuteNonQuery();
+                    sb.AppendLine($"  Item {itemIndex}: {nombreProd}");
+                    sb.AppendLine($"    - Cantidad: {item.Cantidad}");
+                    sb.AppendLine($"    - Precio Unitario: {item.Costo:C}");
+                    sb.AppendLine($"    - Observación: {observacion}");
+                    itemIndex++;
                 }
 
-                tr.Commit();
-                registrado = true;
+                sb.AppendLine(SEPARADOR_VENTA); // Termina con el separador
+                sb.AppendLine(""); // Línea vacía para separar registros
+
+                // Escribir el contenido al archivo, agregándolo (append: true)
+                File.AppendAllText(RUTA_ARCHIVO, sb.ToString());
+
+                return true;
             }
             catch (Exception ex)
             {
-                tr?.Rollback();
-                // 🚨 MUESTRA LA EXCEPCIÓN DETALLADA SI SIGUE FALLANDO
-                throw new Exception("Error al registrar la venta (Transacción revertida): " + ex.Message);
+                throw new Exception("Error al guardar la venta en el archivo de texto: " + ex.Message);
             }
-            finally
-            {
-                if (cn != null && cn.State == ConnectionState.Open) cn.Close();
-            }
-            return registrado;
         }
 
-        // Método para LISTAR las ventas registradas (Se mantiene sin cambios)
+        // =================================================================================
+        // 2. LISTAR VENTAS (Leer y Parsear TXT)
+        // =================================================================================
         public DataTable ListarVentasRegistradas()
         {
             DataTable dt = new DataTable();
-            SqlConnection cn = Conexion.Instancia.Conectar();
+            dt.Columns.Add("IdVenta", typeof(int));
+            dt.Columns.Add("Cliente", typeof(string));
+            dt.Columns.Add("FechaVenta", typeof(DateTime));
+            dt.Columns.Add("TotalPagar", typeof(decimal));
+            dt.Columns.Add("TipoVenta", typeof(string));
+
+            int idContador = 1;
+
+            if (!File.Exists(RUTA_ARCHIVO))
+            {
+                return dt;
+            }
 
             try
             {
-                cn.Open();
-                SqlCommand cmd = new SqlCommand(@"
-                SELECT 
-                    V.IdVenta, 
-                    C.Nombre + ' ' + C.Apellido AS Cliente, 
-                    V.FechaVenta, 
-                    V.TotalPagar,
-                    V.TipoVenta
-                FROM Venta V
-                INNER JOIN Cliente C ON V.IdCliente = C.IdCliente
-                WHERE V.Estado = 'Registrada'
-                ORDER BY V.FechaVenta DESC", cn);
+                string[] lineas = File.ReadAllLines(RUTA_ARCHIVO);
+                string clienteNombre = "N/A";
+                DateTime fechaVenta = DateTime.MinValue;
+                decimal totalPagar = 0;
+                string tipoVenta = "N/A";
 
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
+                foreach (string linea in lineas)
+                {
+                    if (linea.StartsWith(SEPARADOR_VENTA))
+                    {
+                        // 🚨 Si encontramos el separador después de una venta válida, la agregamos
+                        if (totalPagar != 0)
+                        {
+                            dt.Rows.Add(idContador, clienteNombre, fechaVenta, totalPagar, tipoVenta);
+                            idContador++;
+                        }
+
+                        // Reinicia los valores para la siguiente venta
+                        clienteNombre = "N/A";
+                        fechaVenta = DateTime.MinValue;
+                        totalPagar = 0;
+                        tipoVenta = "N/A";
+                    }
+                    else if (linea.StartsWith("FECHA REGISTRO:"))
+                    {
+                        string fechaStr = linea.Replace("FECHA REGISTRO: ", "").Trim();
+                        DateTime.TryParse(fechaStr, out fechaVenta);
+                    }
+                    else if (linea.StartsWith("TIPO VENTA:"))
+                    {
+                        tipoVenta = linea.Replace("TIPO VENTA: ", "").Trim();
+                    }
+                    else if (linea.StartsWith("TOTAL A PAGAR:"))
+                    {
+                        // Quita la etiqueta y el símbolo de moneda para parsear correctamente
+                        string totalStr = linea.Replace("TOTAL A PAGAR: ", "")
+                                              .Replace("S/", "")
+                                              .Replace("$", "")
+                                              .Trim();
+                        // Intentamos parsear usando la cultura actual para decimales
+                        decimal.TryParse(totalStr, System.Globalization.NumberStyles.Currency, System.Globalization.CultureInfo.CurrentCulture, out totalPagar);
+                    }
+                    else if (linea.StartsWith("  Nombre:"))
+                    {
+                        // 🚨 CORRECCIÓN: La línea usa DOS ESPACIOS antes de Nombre
+                        clienteNombre = linea.Replace("  Nombre: ", "").Trim();
+                    }
+                }
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al listar ventas: " + ex.Message);
+                throw new Exception("Error al leer y analizar el archivo de ventas: " + ex.Message);
             }
-            finally
-            {
-                if (cn != null && cn.State == ConnectionState.Open) cn.Close();
-            }
+
             return dt;
+        }
+
+        // =================================================================================
+        // 3. ANULAR VENTA (Eliminar del TXT)
+        // =================================================================================
+        public void AnularVenta(int idVentaAAnular)
+        {
+            if (!File.Exists(RUTA_ARCHIVO))
+            {
+                throw new FileNotFoundException("El archivo de ventas no existe para anular.");
+            }
+
+            string[] lineasOriginales = File.ReadAllLines(RUTA_ARCHIVO);
+            List<string> nuevasLineas = new List<string>();
+
+            int idContador = 1;
+            bool dentroDeVentaAAnular = false;
+
+            foreach (string linea in lineasOriginales)
+            {
+                if (linea.StartsWith(SEPARADOR_VENTA))
+                {
+                    if (idContador == idVentaAAnular)
+                    {
+                        dentroDeVentaAAnular = true; // Empieza a ignorar las líneas de esta venta
+                    }
+                    else if (dentroDeVentaAAnular)
+                    {
+                        dentroDeVentaAAnular = false; // Encuentra el final de la venta ignorada, se detiene
+                        // No añadimos el separador final de la venta anulada
+                    }
+                    else
+                    {
+                        nuevasLineas.Add(linea); // Añade separador si no pertenece a la venta a anular
+                    }
+
+                    if (!dentroDeVentaAAnular)
+                        idContador++; // Solo incrementa el contador si NO estamos dentro del bloque a anular
+                }
+                else if (!dentroDeVentaAAnular)
+                {
+                    // Si no estamos dentro de la venta a anular, guardamos la línea
+                    nuevasLineas.Add(linea);
+                }
+            }
+
+            // Escribir todas las líneas restantes de vuelta al archivo, sobrescribiendo el original
+            File.WriteAllLines(RUTA_ARCHIVO, nuevasLineas);
         }
     }
 }
