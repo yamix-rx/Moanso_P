@@ -139,6 +139,28 @@ namespace CapaAccesoDatos
 
             return editado;
         }
+        public void DescontarStock(int idInsumo, decimal cantidadRestar)
+        {
+            SqlCommand cmd = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spDescontarStock", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idInsumo", idInsumo);
+                cmd.Parameters.AddWithValue("@cantidadRestar", cantidadRestar);
+                cn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+        }
 
         // ==============================
         // DESHABILITAR INSUMO
@@ -175,3 +197,4 @@ namespace CapaAccesoDatos
         #endregion
     }
 }
+

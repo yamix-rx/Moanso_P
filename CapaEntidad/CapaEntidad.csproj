@@ -44,7 +44,9 @@
     <Compile Include="entCliente.cs" />
     <Compile Include="entInsumo.cs" />
     <Compile Include="entItemPedido.cs" />
+    <Compile Include="entPedido.cs" />
     <Compile Include="entProducto.cs" />
+    <Compile Include="entReceta.cs" />
     <Compile Include="entVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
