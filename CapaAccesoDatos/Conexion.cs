@@ -9,19 +9,23 @@ namespace CapaAccesoDatos
 {
     public class Conexion
     {
-            //patron de Diseño Singleton
-            private static readonly Conexion _instancia = new Conexion();
-            public static Conexion Instancia
-            {
-                get { return Conexion._instancia; }
-            }
+        // Patron de Diseño Singleton
+        private static readonly Conexion _instancia = new Conexion();
+        public static Conexion Instancia
+        {
+            get { return Conexion._instancia; }
+        }
 
-            public SqlConnection Conectar()
-            {
+        public SqlConnection Conectar()
+        {
             SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = "Data Source=DESKTOP-PK88VMC\\YENCI_RX; Initial Catalog = DBCocina;" +//"User ID=sa; Password = 8421";
-            "Integrated Security=true";
+
+            // 🚀 CORRECCIÓN APLICADA: 
+            // 1. Se eliminó el punto y coma (;) innecesario después de DBCocina.
+            // 2. Se unificó toda la cadena de conexión en una sola expresión válida.
+            cn.ConnectionString = "Data Source=DESKTOP-PK88VMC\\YENCI_RX;Initial Catalog=DBCocina;Integrated Security=true";
+
             return cn;
-            }
+        }
     }
 }

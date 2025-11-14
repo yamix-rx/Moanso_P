@@ -8,17 +8,16 @@ namespace CapaEntidad
 {
     public class entVenta
     {
-        // Campos que corresponden a la tabla Venta
         public int IdVenta { get; set; }
-        public int IdCliente { get; set; }
-        public int IdUsuario { get; set; } // Id del Mozo/Empleado
+        public int IdCliente { get; set; } // Necesario para FK
+        public int IdUsuario { get; set; } // 🚨 NUEVO: Requerido por la tabla Venta
         public DateTime FechaVenta { get; set; }
-        public string TipoComprobante { get; set; } // Ej: "Ticket", "Factura"
-        public string TipoVenta { get; set; } // Ej: "Salón", "Llevar", "Delivery"
+        public string TipoComprobante { get; set; } // 🚨 NUEVO: Requerido por la tabla Venta
+        public string TipoVenta { get; set; }
         public decimal TotalPagar { get; set; }
-        public string Estado { get; set; } // Ej: "Registrada", "Anulada"
+        public string Estado { get; set; } // 🚨 NUEVO: Requerido por la tabla Venta (e.g., "Registrado")
 
-        // La lista de productos (el detalle) es clave para la transacción
+        // El detalle de la venta (lista de productos)
         public List<entItemPedido> DetalleVenta { get; set; }
     }
 }

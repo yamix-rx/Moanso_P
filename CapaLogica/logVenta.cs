@@ -14,7 +14,8 @@ namespace CapaLogica
         private datVenta Datos = new datVenta();
 
         // Método para registrar la venta en el archivo TXT
-        public bool RegistrarVenta(entVenta venta, entCliente cliente)
+        // 🚨 MÉTODO ACTUALIZADO: Ahora recibe solo la entidad Venta
+        public bool RegistrarVenta(entVenta venta)
         {
             // Validación de Negocio: Verificar que haya ítems
             if (venta.DetalleVenta == null || venta.DetalleVenta.Count == 0)
@@ -22,17 +23,14 @@ namespace CapaLogica
                 throw new Exception("El pedido debe contener al menos un plato o bebida.");
             }
 
-            // Validación de Negocio: DNI, Nombre y Apellido
-            // Esto evita que guardemos un registro de cliente vacío
-            if (string.IsNullOrWhiteSpace(cliente.DNI) ||
-                string.IsNullOrWhiteSpace(cliente.Nombre) ||
-                string.IsNullOrWhiteSpace(cliente.Apellido))
+            // Validación de Negocio: IdCliente debe ser válido
+            if (venta.IdCliente <= 0)
             {
-                throw new Exception("El DNI, Nombre y Apellido del cliente son campos obligatorios.");
+                throw new Exception("Debe seleccionar un cliente válido (IdCliente faltante).");
             }
 
-            // Llamada al método que ahora guarda en TXT
-            return Datos.RegistrarVenta(venta, cliente);
+            // Llamada al método que ahora guarda en SQL
+            return Datos.RegistrarVenta(venta);
         }
 
         // Método para listar las ventas, llamando al parser de TXT

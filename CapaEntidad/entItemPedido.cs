@@ -10,11 +10,14 @@ namespace CapaEntidad
     {
         public int IdProducto { get; set; }
         public string Nombre { get; set; }
-        public decimal Costo { get; set; }      // Precio Unitario
+        public decimal PrecioUnitario { get; set; } // ✅ Correcto, coincide con la tabla DetalleVenta
         public int Cantidad { get; set; }
         public string Observacion { get; set; } // Nuevo campo para el Chifa
-        public decimal Importe { get { return Costo * Cantidad; } } // Propiedad calculada
-                                                                    // Campos adicionales para la visualización del pedido
-        public string NombreProducto { get; set; }
+
+        // 🚨 AJUSTE NECESARIO: Descomenta y usa PrecioUnitario en lugar de Costo
+        public decimal Importe { get { return PrecioUnitario * Cantidad; } } // Propiedad calculada
+
+        // Campos adicionales para la visualización del pedido
+        public string NombreProducto { get; set; } // ✅ Correcto para mostrar el nombre en el DataGridView
     }
 }

@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="logCliente.cs" />
     <Compile Include="logInsumo.cs" />
     <Compile Include="logPedido.cs" />
     <Compile Include="logProducto.cs" />
+    <Compile Include="logProveedor.cs" />
     <Compile Include="logReceta.cs" />
     <Compile Include="logVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -3,197 +3,172 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CapaAccesoDatos
 {
     public class datVenta
     {
-        private const string NOMBRE_ARCHIVO = "RegistroDeVentas.txt";
-        private static readonly string RUTA_BASE = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        private static readonly string RUTA_ARCHIVO = Path.Combine(RUTA_BASE, NOMBRE_ARCHIVO);
-        private const string SEPARADOR_VENTA = "=================================================";
-
         // =================================================================================
-        // 1. REGISTRAR VENTA (Guardar en TXT)
+        // 1. REGISTRAR VENTA (Usando Transacción SQL)
         // =================================================================================
-        public bool RegistrarVenta(entVenta venta, entCliente cliente)
+        // Se asume que la entidad Venta ya contiene el IdCliente, IdUsuario, TipoComprobante, Estado,
+        // y el DetalleVenta con PrecioUnitario.
+        public bool RegistrarVenta(entVenta venta)
         {
-            try
+            // Usamos una transacción para asegurar que tanto la cabecera como el detalle se guarden
+            using (SqlConnection cn = Conexion.Instancia.Conectar())
             {
-                StringBuilder sb = new StringBuilder();
+                cn.Open();
+                SqlTransaction tr = cn.BeginTransaction();
+                bool exito = false;
 
-                // 1. Cabecera del Registro
-                sb.AppendLine(SEPARADOR_VENTA); // Inicia con el separador
-                sb.AppendLine($"FECHA REGISTRO: {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
-                sb.AppendLine($"TIPO VENTA: {venta.TipoVenta}");
-                sb.AppendLine($"TOTAL A PAGAR: {venta.TotalPagar:C}");
-                sb.AppendLine("-------------------------------------------------");
-
-                // 2. Datos del Cliente
-                sb.AppendLine("CLIENTE:");
-                sb.AppendLine($"  DNI: {cliente.DNI}");
-                sb.AppendLine($"  Nombre: {cliente.Nombre} {cliente.Apellido}");
-                sb.AppendLine("-------------------------------------------------");
-
-                // 3. Detalles de la Venta (Productos)
-                sb.AppendLine("DETALLE DEL PEDIDO:");
-
-                int itemIndex = 1;
-                foreach (var item in venta.DetalleVenta)
+                try
                 {
-                    // Asumimos que tienes la propiedad NombreProducto en entItemPedido para el TXT
-                    string nombreProd = (item is entItemPedido itemPedido) ? itemPedido.NombreProducto : "Producto Desconocido";
-                    string observacion = string.IsNullOrWhiteSpace(item.Observacion) ? "-" : item.Observacion;
+                    // 1. INSERTAR CABECERA DE VENTA (Tabla Venta)
+                    // 🚨 AJUSTE: Incluir IdUsuario, TipoComprobante y Estado
+                    string queryVenta = @"
+                        INSERT INTO Venta (IdCliente, IdUsuario, FechaVenta, TipoComprobante, TipoVenta, TotalPagar, Estado) 
+                        OUTPUT INSERTED.IdVenta
+                        VALUES (@IdCliente, @IdUsuario, @FechaVenta, @TipoComprobante, @TipoVenta, @TotalPagar, @Estado)";
 
-                    sb.AppendLine($"  Item {itemIndex}: {nombreProd}");
-                    sb.AppendLine($"    - Cantidad: {item.Cantidad}");
-                    sb.AppendLine($"    - Precio Unitario: {item.Costo:C}");
-                    sb.AppendLine($"    - Observación: {observacion}");
-                    itemIndex++;
+                    SqlCommand cmdVenta = new SqlCommand(queryVenta, cn, tr);
+                    cmdVenta.CommandType = CommandType.Text;
+
+                    cmdVenta.Parameters.AddWithValue("@IdCliente", venta.IdCliente);
+                    cmdVenta.Parameters.AddWithValue("@IdUsuario", venta.IdUsuario); // Requerido por la tabla
+                    cmdVenta.Parameters.AddWithValue("@FechaVenta", venta.FechaVenta);
+                    cmdVenta.Parameters.AddWithValue("@TipoComprobante", venta.TipoComprobante); // Requerido por la tabla
+                    cmdVenta.Parameters.AddWithValue("@TipoVenta", venta.TipoVenta);
+                    cmdVenta.Parameters.AddWithValue("@TotalPagar", venta.TotalPagar);
+                    cmdVenta.Parameters.AddWithValue("@Estado", venta.Estado); // Requerido por la tabla
+
+                    // Ejecutamos y obtenemos el IdVenta generado (Identity)
+                    int idVentaGenerado = (int)cmdVenta.ExecuteScalar();
+
+                    // 2. INSERTAR DETALLE DE VENTA (Tabla DetalleVenta)
+                    if (idVentaGenerado > 0)
+                    {
+                        foreach (var item in venta.DetalleVenta)
+                        {
+                            string queryDetalle = @"
+                                INSERT INTO DetalleVenta (IdVenta, IdProducto, Cantidad, PrecioUnitario, Observacion)
+                                VALUES (@IdVenta, @IdProducto, @Cantidad, @PrecioUnitario, @Observacion)";
+
+                            SqlCommand cmdDetalle = new SqlCommand(queryDetalle, cn, tr);
+                            cmdDetalle.CommandType = CommandType.Text;
+
+                            cmdDetalle.Parameters.AddWithValue("@IdVenta", idVentaGenerado);
+                            cmdDetalle.Parameters.AddWithValue("@IdProducto", item.IdProducto);
+                            cmdDetalle.Parameters.AddWithValue("@Cantidad", item.Cantidad);
+                            // 🚨 AJUSTE: Usar PrecioUnitario en lugar de Costo
+                            cmdDetalle.Parameters.AddWithValue("@PrecioUnitario", item.PrecioUnitario);
+                            cmdDetalle.Parameters.AddWithValue("@Observacion", item.Observacion ?? (object)DBNull.Value); // Manejo de nulos
+
+                            cmdDetalle.ExecuteNonQuery();
+                        }
+
+                        // Si todos los inserts son exitosos, CONFIRMAMOS la transacción
+                        tr.Commit();
+                        exito = true;
+                    }
+                    else
+                    {
+                        // Si la cabecera falló, deshacemos por si acaso
+                        tr.Rollback();
+                        throw new Exception("Error al obtener el IdVenta generado.");
+                    }
                 }
-
-                sb.AppendLine(SEPARADOR_VENTA); // Termina con el separador
-                sb.AppendLine(""); // Línea vacía para separar registros
-
-                // Escribir el contenido al archivo, agregándolo (append: true)
-                File.AppendAllText(RUTA_ARCHIVO, sb.ToString());
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al guardar la venta en el archivo de texto: " + ex.Message);
+                catch (Exception ex)
+                {
+                    // Si ocurre un error, DESHACEMOS la transacción
+                    tr.Rollback();
+                    throw new Exception("Error al registrar la venta en la base de datos: " + ex.Message);
+                }
+                return exito;
             }
         }
 
         // =================================================================================
-        // 2. LISTAR VENTAS (Leer y Parsear TXT)
+        // 2. LISTAR VENTAS (Consultar SQL)
         // =================================================================================
         public DataTable ListarVentasRegistradas()
         {
             DataTable dt = new DataTable();
-            dt.Columns.Add("IdVenta", typeof(int));
-            dt.Columns.Add("Cliente", typeof(string));
-            dt.Columns.Add("FechaVenta", typeof(DateTime));
-            dt.Columns.Add("TotalPagar", typeof(decimal));
-            dt.Columns.Add("TipoVenta", typeof(string));
 
-            int idContador = 1;
-
-            if (!File.Exists(RUTA_ARCHIVO))
+            using (SqlConnection cn = Conexion.Instancia.Conectar())
             {
-                return dt;
-            }
+                // La consulta de ListarVentas es correcta, usa JOIN y las columnas principales
+                string query = @"
+                    SELECT 
+                        v.IdVenta, 
+                        c.Nombre + ' ' + c.Apellido AS Cliente, 
+                        v.FechaVenta, 
+                        v.TotalPagar, 
+                        v.TipoVenta
+                    FROM 
+                        Venta v
+                    INNER JOIN 
+                        Cliente c ON v.IdCliente = c.IdCliente
+                    ORDER BY 
+                        v.FechaVenta DESC";
 
-            try
-            {
-                string[] lineas = File.ReadAllLines(RUTA_ARCHIVO);
-                string clienteNombre = "N/A";
-                DateTime fechaVenta = DateTime.MinValue;
-                decimal totalPagar = 0;
-                string tipoVenta = "N/A";
+                SqlCommand cmd = new SqlCommand(query, cn);
+                cmd.CommandType = CommandType.Text;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-                foreach (string linea in lineas)
+                try
                 {
-                    if (linea.StartsWith(SEPARADOR_VENTA))
-                    {
-                        // 🚨 Si encontramos el separador después de una venta válida, la agregamos
-                        if (totalPagar != 0)
-                        {
-                            dt.Rows.Add(idContador, clienteNombre, fechaVenta, totalPagar, tipoVenta);
-                            idContador++;
-                        }
-
-                        // Reinicia los valores para la siguiente venta
-                        clienteNombre = "N/A";
-                        fechaVenta = DateTime.MinValue;
-                        totalPagar = 0;
-                        tipoVenta = "N/A";
-                    }
-                    else if (linea.StartsWith("FECHA REGISTRO:"))
-                    {
-                        string fechaStr = linea.Replace("FECHA REGISTRO: ", "").Trim();
-                        DateTime.TryParse(fechaStr, out fechaVenta);
-                    }
-                    else if (linea.StartsWith("TIPO VENTA:"))
-                    {
-                        tipoVenta = linea.Replace("TIPO VENTA: ", "").Trim();
-                    }
-                    else if (linea.StartsWith("TOTAL A PAGAR:"))
-                    {
-                        // Quita la etiqueta y el símbolo de moneda para parsear correctamente
-                        string totalStr = linea.Replace("TOTAL A PAGAR: ", "")
-                                              .Replace("S/", "")
-                                              .Replace("$", "")
-                                              .Trim();
-                        // Intentamos parsear usando la cultura actual para decimales
-                        decimal.TryParse(totalStr, System.Globalization.NumberStyles.Currency, System.Globalization.CultureInfo.CurrentCulture, out totalPagar);
-                    }
-                    else if (linea.StartsWith("  Nombre:"))
-                    {
-                        // 🚨 CORRECCIÓN: La línea usa DOS ESPACIOS antes de Nombre
-                        clienteNombre = linea.Replace("  Nombre: ", "").Trim();
-                    }
+                    da.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al listar ventas desde la base de datos: " + ex.Message);
                 }
             }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al leer y analizar el archivo de ventas: " + ex.Message);
-            }
-
             return dt;
         }
 
         // =================================================================================
-        // 3. ANULAR VENTA (Eliminar del TXT)
+        // 3. ANULAR VENTA (Eliminar de SQL)
         // =================================================================================
         public void AnularVenta(int idVentaAAnular)
         {
-            if (!File.Exists(RUTA_ARCHIVO))
+            using (SqlConnection cn = Conexion.Instancia.Conectar())
             {
-                throw new FileNotFoundException("El archivo de ventas no existe para anular.");
-            }
+                cn.Open();
+                SqlTransaction tr = cn.BeginTransaction();
 
-            string[] lineasOriginales = File.ReadAllLines(RUTA_ARCHIVO);
-            List<string> nuevasLineas = new List<string>();
-
-            int idContador = 1;
-            bool dentroDeVentaAAnular = false;
-
-            foreach (string linea in lineasOriginales)
-            {
-                if (linea.StartsWith(SEPARADOR_VENTA))
+                try
                 {
-                    if (idContador == idVentaAAnular)
+                    // 1. ELIMINAR DETALLES: Es crucial eliminar primero los detalles 
+                    string queryDetalle = "DELETE FROM DetalleVenta WHERE IdVenta = @IdVenta";
+                    SqlCommand cmdDetalle = new SqlCommand(queryDetalle, cn, tr);
+                    cmdDetalle.Parameters.AddWithValue("@IdVenta", idVentaAAnular);
+                    cmdDetalle.ExecuteNonQuery();
+
+                    // 2. ELIMINAR CABECERA
+                    string queryVenta = "DELETE FROM Venta WHERE IdVenta = @IdVenta";
+                    SqlCommand cmdVenta = new SqlCommand(queryVenta, cn, tr);
+                    cmdVenta.Parameters.AddWithValue("@IdVenta", idVentaAAnular);
+
+                    int filasAfectadas = cmdVenta.ExecuteNonQuery();
+
+                    if (filasAfectadas > 0)
                     {
-                        dentroDeVentaAAnular = true; // Empieza a ignorar las líneas de esta venta
-                    }
-                    else if (dentroDeVentaAAnular)
-                    {
-                        dentroDeVentaAAnular = false; // Encuentra el final de la venta ignorada, se detiene
-                        // No añadimos el separador final de la venta anulada
+                        tr.Commit(); // Ambas operaciones fueron exitosas
                     }
                     else
                     {
-                        nuevasLineas.Add(linea); // Añade separador si no pertenece a la venta a anular
+                        tr.Rollback(); // No se encontró la cabecera
+                        throw new Exception("La venta a anular no fue encontrada.");
                     }
-
-                    if (!dentroDeVentaAAnular)
-                        idContador++; // Solo incrementa el contador si NO estamos dentro del bloque a anular
                 }
-                else if (!dentroDeVentaAAnular)
+                catch (Exception ex)
                 {
-                    // Si no estamos dentro de la venta a anular, guardamos la línea
-                    nuevasLineas.Add(linea);
+                    tr.Rollback();
+                    throw new Exception("Error al anular la venta en la base de datos: " + ex.Message);
                 }
             }
-
-            // Escribir todas las líneas restantes de vuelta al archivo, sobrescribiendo el original
-            File.WriteAllLines(RUTA_ARCHIVO, nuevasLineas);
         }
     }
 }
