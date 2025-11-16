@@ -1,5 +1,6 @@
 ﻿
 using SistemaCocina;
+using SistemaForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -62,6 +63,13 @@ namespace Yenci_parte
             FormPedido pc = new FormPedido();
             this.Hide(); 
             pc.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            CrudVPlatos cp = new CrudVPlatos();
+            this.Hide();
+            cp.Show();
         }
     }
 }
