@@ -1,6 +1,6 @@
 ﻿namespace SistemaForms
 {
-    partial class Platos
+    partial class CrudVPlatos
     {
         /// <summary>
         /// Required designer variable.

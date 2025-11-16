@@ -34,7 +34,7 @@ namespace Yenci_parte
 
         private void button4_Click(object sender, EventArgs e)
         {
-            MantenedorClientes CL = new MantenedorClientes();
+            CrudVClientes CL = new CrudVClientes();
             this.Hide();
             CL.Show();
         }

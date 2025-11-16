@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace Yenci_parte
 {
-    public partial class MantenedorClientes : Form
+    public partial class CrudVClientes : Form
     {
-        public MantenedorClientes()
+        public CrudVClientes()
         {
             InitializeComponent();
         }

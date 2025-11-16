@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SistemaForms
 {
-    public partial class Platos : Form
+    public partial class CrudVPlatos : Form
     {
-        public Platos()
+        public CrudVPlatos()
         {
             InitializeComponent();
         }
