@@ -31,6 +31,11 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.txtStock = new System.Windows.Forms.TextBox();
@@ -39,11 +44,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCosto = new System.Windows.Forms.TextBox();
-            this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,6 +80,42 @@
             this.dgvData.Size = new System.Drawing.Size(974, 251);
             this.dgvData.TabIndex = 2;
             this.dgvData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellClick);
+            // 
+            // IdProducto
+            // 
+            this.IdProducto.HeaderText = "";
+            this.IdProducto.MinimumWidth = 8;
+            this.IdProducto.Name = "IdProducto";
+            this.IdProducto.Visible = false;
+            this.IdProducto.Width = 150;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.MinimumWidth = 8;
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 150;
+            // 
+            // Stock
+            // 
+            this.Stock.HeaderText = "Stock";
+            this.Stock.MinimumWidth = 8;
+            this.Stock.Name = "Stock";
+            this.Stock.Width = 150;
+            // 
+            // Costo
+            // 
+            this.Costo.HeaderText = "Costo";
+            this.Costo.MinimumWidth = 8;
+            this.Costo.Name = "Costo";
+            this.Costo.Width = 150;
+            // 
+            // Tipo
+            // 
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.MinimumWidth = 8;
+            this.Tipo.Name = "Tipo";
+            this.Tipo.Width = 150;
             // 
             // button1
             // 
@@ -149,47 +186,22 @@
             this.txtCosto.Size = new System.Drawing.Size(99, 26);
             this.txtCosto.TabIndex = 9;
             // 
-            // IdProducto
+            // label5
             // 
-            this.IdProducto.HeaderText = "";
-            this.IdProducto.MinimumWidth = 8;
-            this.IdProducto.Name = "IdProducto";
-            this.IdProducto.Visible = false;
-            this.IdProducto.Width = 150;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.MinimumWidth = 8;
-            this.Nombre.Name = "Nombre";
-            this.Nombre.Width = 150;
-            // 
-            // Stock
-            // 
-            this.Stock.HeaderText = "Stock";
-            this.Stock.MinimumWidth = 8;
-            this.Stock.Name = "Stock";
-            this.Stock.Width = 150;
-            // 
-            // Costo
-            // 
-            this.Costo.HeaderText = "Costo";
-            this.Costo.MinimumWidth = 8;
-            this.Costo.Name = "Costo";
-            this.Costo.Width = 150;
-            // 
-            // Tipo
-            // 
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.MinimumWidth = 8;
-            this.Tipo.Name = "Tipo";
-            this.Tipo.Width = 150;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(936, 409);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(75, 20);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Regresar";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // CrudVPlatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1004, 423);
+            this.ClientSize = new System.Drawing.Size(1007, 429);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtCosto);
             this.Controls.Add(this.label3);
@@ -228,5 +240,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
+        private System.Windows.Forms.Label label5;
     }
 }

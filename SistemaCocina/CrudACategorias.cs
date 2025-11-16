@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Yenci_parte;
 
 namespace SistemaCocina
 {
@@ -152,6 +153,13 @@ namespace SistemaCocina
                     MessageBox.Show(Mensaje, "Error al Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            MenuPrincipal menu = new MenuPrincipal();
+            this.Hide();
+            menu.Show();
         }
     }
 }

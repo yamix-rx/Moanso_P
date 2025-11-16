@@ -59,7 +59,9 @@ namespace Yenci_parte
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            MenuPrincipal menu = new MenuPrincipal();
+            this.Hide();
+            menu.Show();
         }
     }
 }

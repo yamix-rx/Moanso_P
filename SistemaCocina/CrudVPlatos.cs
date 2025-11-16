@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Yenci_parte;
 
 namespace SistemaForms
 {
@@ -151,6 +152,13 @@ namespace SistemaForms
                 txtCosto.Text = row.Cells["Costo"].Value.ToString();
                 cboTipo.Text = row.Cells["Tipo"].Value.ToString();
             }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            MenuPrincipal menu = new MenuPrincipal();
+            this.Hide();
+            menu.Show();
         }
     }
 }
