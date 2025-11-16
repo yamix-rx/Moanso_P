@@ -49,7 +49,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnDeshabilitar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
@@ -255,7 +254,7 @@
             // btnModificar
             // 
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(824, 322);
+            this.btnModificar.Location = new System.Drawing.Point(824, 259);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(147, 45);
@@ -267,7 +266,7 @@
             // btnDeshabilitar
             // 
             this.btnDeshabilitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeshabilitar.Location = new System.Drawing.Point(824, 400);
+            this.btnDeshabilitar.Location = new System.Drawing.Point(824, 331);
             this.btnDeshabilitar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDeshabilitar.Name = "btnDeshabilitar";
             this.btnDeshabilitar.Size = new System.Drawing.Size(147, 45);
@@ -275,18 +274,6 @@
             this.btnDeshabilitar.Text = "Deshabilitar";
             this.btnDeshabilitar.UseVisualStyleBackColor = true;
             this.btnDeshabilitar.Click += new System.EventHandler(this.btnDeshabilitar_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Location = new System.Drawing.Point(824, 249);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(147, 45);
-            this.btnEditar.TabIndex = 13;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnRegistrar
             // 
@@ -335,12 +322,12 @@
             this.Controls.Add(this.groupBoxDatos);
             this.Controls.Add(this.btnDeshabilitar);
             this.Controls.Add(this.dgvInsumos);
-            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.lblTituloInsumos);
             this.Controls.Add(this.btnRegistrar);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "CrudACInsumo";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.CrudACInsumo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInsumos)).EndInit();
             this.groupBoxDatos.ResumeLayout(false);
             this.groupBoxDatos.PerformLayout();
@@ -366,7 +353,6 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnDeshabilitar;
-        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.CheckBox chkActivo;
         private System.Windows.Forms.DateTimePicker dtpFecha;

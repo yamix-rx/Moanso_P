@@ -18,10 +18,10 @@ C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\SistemaCocina.pdb
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.MenuPrincipal.resources
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.FormPedido.resources
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.Login.resources
-C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.MantenerdorProveedor.resources
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.Registro.resources
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.Venta.resources
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.CrudVClientes.resources
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\SistemaForms.CrudVPlatos.resources
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\SistemaCocina.CrudACategorias.resources
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\SistemaCocina.CrudACInsumo.resources
+C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.CrudAProveedor.resources

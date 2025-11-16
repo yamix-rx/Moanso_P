@@ -32,7 +32,8 @@ namespace CapaAccesoDatos
 
             try
             {
-                SqlConnection cn = Conexion.Instancia.Conectar(); // Llama a tu clase de conexión (Singleton)
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                // Asegúrate que 'spListarInsumo' une con la tabla Categoria y devuelve IdCategoria y NombreCategoria
                 cmd = new SqlCommand("spListarInsumo", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
@@ -50,6 +51,11 @@ namespace CapaAccesoDatos
                     ins.estInsumo = Convert.ToBoolean(dr["estInsumo"]);
                     ins.fecRegistro = Convert.ToDateTime(dr["fecRegistro"]);
 
+                    // --- NUEVOS CAMPOS LEÍDOS ---
+                    // Se usa dr.IsDBNull para manejar insumos antiguos sin categoría
+                    ins.IdCategoria = dr.IsDBNull(dr.GetOrdinal("IdCategoria")) ? 0 : Convert.ToInt32(dr["IdCategoria"]);
+                    ins.NombreCategoria = dr.IsDBNull(dr.GetOrdinal("NombreCategoria")) ? "" : dr["NombreCategoria"].ToString();
+
                     lista.Add(ins);
                 }
             }
@@ -59,7 +65,7 @@ namespace CapaAccesoDatos
             }
             finally
             {
-                cmd.Connection.Close();
+                if (cmd != null && cmd.Connection != null) cmd.Connection.Close();
             }
             return lista;
         }
@@ -84,6 +90,9 @@ namespace CapaAccesoDatos
                 cmd.Parameters.AddWithValue("@estInsumo", ins.estInsumo);
                 cmd.Parameters.AddWithValue("@fecRegistro", ins.fecRegistro);
 
+                // --- PARÁMETRO FALTANTE CORREGIDO ---
+                cmd.Parameters.AddWithValue("@IdCategoria", ins.IdCategoria);
+
                 cn.Open();
                 int filas = cmd.ExecuteNonQuery();
                 if (filas > 0)
@@ -95,7 +104,7 @@ namespace CapaAccesoDatos
             }
             finally
             {
-                cmd.Connection.Close();
+                if (cmd != null && cmd.Connection != null) cmd.Connection.Close();
             }
 
             return insertado;
@@ -123,6 +132,9 @@ namespace CapaAccesoDatos
                 cmd.Parameters.AddWithValue("@estInsumo", ins.estInsumo);
                 cmd.Parameters.AddWithValue("@fecRegistro", ins.fecRegistro);
 
+                // --- PARÁMETRO FALTANTE CORREGIDO ---
+                cmd.Parameters.AddWithValue("@IdCategoria", ins.IdCategoria);
+
                 cn.Open();
                 int filas = cmd.ExecuteNonQuery();
                 if (filas > 0)
@@ -134,7 +146,7 @@ namespace CapaAccesoDatos
             }
             finally
             {
-                cmd.Connection.Close();
+                if (cmd != null && cmd.Connection != null) cmd.Connection.Close();
             }
 
             return editado;

@@ -56,7 +56,7 @@ namespace Yenci_parte
 
         private void button6_Click(object sender, EventArgs e)
         {
-            MantenerdorProveedor log = new MantenerdorProveedor();
+            CrudAProveedor log = new CrudAProveedor();
             this.Hide();
             log.Show();
         }

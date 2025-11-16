@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace Yenci_parte
 {
-    public partial class MantenerdorProveedor : Form
+    public partial class CrudAProveedor : Form
     {
-        public MantenerdorProveedor()
+        public CrudAProveedor()
         {
             InitializeComponent();
         }

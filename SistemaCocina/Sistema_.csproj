@@ -76,11 +76,11 @@
     <Compile Include="CrudACInsumo.Designer.cs">
       <DependentUpon>CrudACInsumo.cs</DependentUpon>
     </Compile>
-    <Compile Include="MantenerdorProveedor.cs">
+    <Compile Include="CrudAProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MantenerdorProveedor.Designer.cs">
-      <DependentUpon>MantenerdorProveedor.cs</DependentUpon>
+    <Compile Include="CrudAProveedor.Designer.cs">
+      <DependentUpon>CrudAProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="MenuPrincipal.cs">
       <SubType>Form</SubType>
@@ -123,8 +123,8 @@
     <EmbeddedResource Include="CrudACInsumo.resx">
       <DependentUpon>CrudACInsumo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MantenerdorProveedor.resx">
-      <DependentUpon>MantenerdorProveedor.cs</DependentUpon>
+    <EmbeddedResource Include="CrudAProveedor.resx">
+      <DependentUpon>CrudAProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>

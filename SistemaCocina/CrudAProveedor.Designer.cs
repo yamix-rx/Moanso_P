@@ -1,6 +1,6 @@
 ﻿namespace Yenci_parte
 {
-    partial class MantenerdorProveedor
+    partial class CrudAProveedor
     {
         /// <summary>
         /// Required designer variable.
