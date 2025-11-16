@@ -71,5 +71,12 @@ namespace Yenci_parte
             this.Hide();
             cp.Show();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            MantenedorInsumo mi = new MantenedorInsumo();
+            this.Hide();
+            mi.Show();
+        }
     }
 }

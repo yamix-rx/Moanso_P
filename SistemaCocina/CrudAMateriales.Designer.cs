@@ -1,6 +1,6 @@
 ﻿namespace SistemaForms
 {
-    partial class CompraInsumos
+    partial class CrudAMateriales
     {
         /// <summary>
         /// Required designer variable.

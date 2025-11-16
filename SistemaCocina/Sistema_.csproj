@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompraInsumos.cs">
+    <Compile Include="CrudAMateriales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CompraInsumos.Designer.cs">
-      <DependentUpon>CompraInsumos.cs</DependentUpon>
+    <Compile Include="CrudAMateriales.Designer.cs">
+      <DependentUpon>CrudAMateriales.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPedido.cs">
       <SubType>Form</SubType>
@@ -108,8 +108,8 @@
     <Compile Include="Venta.Designer.cs">
       <DependentUpon>Venta.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CompraInsumos.resx">
-      <DependentUpon>CompraInsumos.cs</DependentUpon>
+    <EmbeddedResource Include="CrudAMateriales.resx">
+      <DependentUpon>CrudAMateriales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPedido.resx">
       <DependentUpon>FormPedido.cs</DependentUpon>
