@@ -85,5 +85,46 @@ namespace CapaAccesoDatos
                 }
             }
         }
+
+        // =================================================================================
+        // 3. EDITAR PROVEEDOR
+        // =================================================================================
+        public bool EditarProveedor(entProveedor proveedor)
+        {
+            using (SqlConnection cn = Conexion.Instancia.Conectar())
+            {
+                // Sentencia SQL para la actualización (UPDATE)
+                string query = @"
+            UPDATE Proveedor SET 
+                Nombre = @Nombre, 
+                Apellido = @Apellido, 
+                Telefono = @Telefono, 
+                DNI = @DNI, 
+                Direccion = @Direccion
+            WHERE IdProveedor = @IdProveedor"; // <--- CLAVE: El filtro WHERE
+
+                SqlCommand cmd = new SqlCommand(query, cn);
+                cmd.CommandType = CommandType.Text;
+
+                // Parámetros de la consulta
+                cmd.Parameters.AddWithValue("@IdProveedor", proveedor.IdProveedor); // CLAVE: ID
+                cmd.Parameters.AddWithValue("@Nombre", proveedor.Nombre);
+                cmd.Parameters.AddWithValue("@Apellido", proveedor.Apellido ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@Telefono", proveedor.Telefono ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@DNI", proveedor.DNI ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@Direccion", proveedor.Direccion ?? (object)DBNull.Value);
+
+                try
+                {
+                    cn.Open();
+                    int i = cmd.ExecuteNonQuery();
+                    return i > 0; // Retorna true si se actualizó al menos 1 fila
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al editar proveedor en la base de datos: " + ex.Message);
+                }
+            }
+        }
     }
 }

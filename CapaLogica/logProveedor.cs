@@ -55,5 +55,29 @@ namespace CapaLogica
                 throw new Exception("Error en la lógica al insertar proveedor: " + ex.Message);
             }
         }
+
+        public bool EditarProveedor(entProveedor proveedor)
+        {
+            try
+            {
+                // Regla de negocio: Asegurar que hay un ID para editar
+                if (proveedor.IdProveedor <= 0)
+                {
+                    throw new Exception("El ID del proveedor a editar no es válido.");
+                }
+
+                // Regla de negocio: Validar que el nombre no esté vacío
+                if (string.IsNullOrWhiteSpace(proveedor.Nombre))
+                {
+                    throw new Exception("El nombre del proveedor no puede estar vacío.");
+                }
+
+                return datProveedor.EditarProveedor(proveedor);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error en la lógica al editar proveedor: " + ex.Message);
+            }
+        }
     }
 }

@@ -31,7 +31,7 @@
             this.groupBoxDatos = new System.Windows.Forms.GroupBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaRegistro = new System.Windows.Forms.DateTimePicker();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtApellidos = new System.Windows.Forms.TextBox();
@@ -55,7 +55,7 @@
             // 
             this.groupBoxDatos.Controls.Add(this.txtDireccion);
             this.groupBoxDatos.Controls.Add(this.label6);
-            this.groupBoxDatos.Controls.Add(this.dtpFecha);
+            this.groupBoxDatos.Controls.Add(this.dtpFechaRegistro);
             this.groupBoxDatos.Controls.Add(this.txtDNI);
             this.groupBoxDatos.Controls.Add(this.txtTelefono);
             this.groupBoxDatos.Controls.Add(this.txtApellidos);
@@ -92,13 +92,13 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Direccion:";
             // 
-            // dtpFecha
+            // dtpFechaRegistro
             // 
-            this.dtpFecha.Location = new System.Drawing.Point(222, 279);
-            this.dtpFecha.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(378, 31);
-            this.dtpFecha.TabIndex = 10;
+            this.dtpFechaRegistro.Location = new System.Drawing.Point(222, 279);
+            this.dtpFechaRegistro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtpFechaRegistro.Name = "dtpFechaRegistro";
+            this.dtpFechaRegistro.Size = new System.Drawing.Size(378, 31);
+            this.dtpFechaRegistro.TabIndex = 10;
             // 
             // txtDNI
             // 
@@ -186,6 +186,7 @@
             this.dgvProveedores.RowTemplate.Height = 28;
             this.dgvProveedores.Size = new System.Drawing.Size(1053, 295);
             this.dgvProveedores.TabIndex = 5;
+            this.dgvProveedores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedores_CellContentClick);
             // 
             // label8
             // 
@@ -207,6 +208,7 @@
             this.btnNuevo.TabIndex = 25;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnEditar
             // 
@@ -218,6 +220,7 @@
             this.btnEditar.TabIndex = 24;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnRegistrar
             // 
@@ -241,7 +244,7 @@
             this.label1.TabIndex = 27;
             this.label1.Text = "PROVEEDORES";
             // 
-            // MantenerdorProveedor
+            // CrudAProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -254,7 +257,7 @@
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.dgvProveedores);
             this.Controls.Add(this.groupBoxDatos);
-            this.Name = "MantenerdorProveedor";
+            this.Name = "CrudAProveedor";
             this.Text = "s";
             this.Load += new System.EventHandler(this.MantenerdorProveedor_Load);
             this.groupBoxDatos.ResumeLayout(false);
@@ -270,7 +273,7 @@
         private System.Windows.Forms.GroupBox groupBoxDatos;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.DateTimePicker dtpFechaRegistro;
         private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtApellidos;

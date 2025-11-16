@@ -14,6 +14,7 @@ namespace Yenci_parte
 {
     public partial class CrudAProveedor : Form
     {
+        private int idProveedorSeleccionado = 0; 
         public CrudAProveedor()
         {
             InitializeComponent();
@@ -28,69 +29,82 @@ namespace Yenci_parte
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                MessageBox.Show("El nombre es obligatorio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             try
             {
-                // 1. Crear la entidad a partir de los TextBox
-                entProveedor nuevoProveedor = new entProveedor
+
+                entProveedor prov = new entProveedor
                 {
-                    Nombre = txtNombre.Text, // Asume que txtNombre es el TextBox de Nombre
-                    Apellido = txtApellidos.Text, // Asume txtApellidos
-                    Telefono = txtTelefono.Text, // Asume txtTelefono
-                    DNI = txtDNI.Text, // Asume txtDNI
-                    Direccion = txtDireccion.Text, // Asume txtDireccion
-                                                   // La FechaRegistro se establece por defecto en la base de datos
+                    IdProveedor = idProveedorSeleccionado, 
+                    Nombre = txtNombre.Text.Trim(),
+                    Apellido = txtApellidos.Text.Trim(),
+                    Telefono = txtTelefono.Text.Trim(),
+                    DNI = txtDNI.Text.Trim(),
+                    Direccion = txtDireccion.Text.Trim(),
+                    FechaRegistro = dtpFechaRegistro.Value
                 };
 
-                // 2. Llamar a la Capa Lógica
-                bool exito = logProveedor.Instancia.InsertarProveedor(nuevoProveedor);
+                bool resultado;
+                string mensaje;
 
-                if (exito)
+                if (prov.IdProveedor == 0)
                 {
-                    MessageBox.Show("Proveedor registrado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // 3. Limpiar y recargar
-                    LimpiarCampos();
-                    CargarProveedores();
+                    // INSERTAR
+                    resultado = logProveedor.Instancia.InsertarProveedor(prov);
+                    mensaje = "Proveedor registrado correctamente.";
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo registrar el proveedor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    // EDITAR
+                    resultado = logProveedor.Instancia.EditarProveedor(prov);
+                    mensaje = "✏️ Proveedor modificado correctamente.";
                 }
 
+                if (resultado)
+                {
+                    MessageBox.Show(mensaje, "Sistema Cocina", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Operación fallida. No se actualizó ninguna fila.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al registrar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error en la operación: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            LimpiarCampos();
+            groupBoxDatos.Enabled = false;
+            btnRegistrar.Text = "Registrar"; 
+            btnEditar.Enabled = true;
+            listarProveedor();
+        }
+
+        public void listarProveedor()
+        {
+            try
+            {
+                dgvProveedores.DataSource = logProveedor.Instancia.ListarProveedor();
+                dgvProveedores.ClearSelection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar la lista de proveedores: " + ex.Message, "Error de Carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void MantenerdorProveedor_Load(object sender, EventArgs e)
         {
-            CargarProveedores();
+            //CargarProveedores();
+            listarProveedor();
         }
 
-        private void CargarProveedores()
-        {
-            try
-            {
-                // 1. Obtener la lista desde la Capa Lógica
-                List<entProveedor> lista = logProveedor.Instancia.ListarProveedor();
-
-                // 2. Asignar al DataGridView
-                dgvProveedores.DataSource = lista;
-
-                // Opcional: Configurar nombres de columna si es necesario
-                // dgvProveedores.Columns["IdProveedor"].Visible = false;
-                // dgvProveedores.Columns["Nombre"].HeaderText = "Razón Social";
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar la lista de proveedores: " + ex.Message, "Error de Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        // Método auxiliar para limpiar campos
         private void LimpiarCampos()
         {
             txtNombre.Clear();
@@ -98,7 +112,42 @@ namespace Yenci_parte
             txtTelefono.Clear();
             txtDNI.Clear();
             txtDireccion.Clear();
-            // No hace falta limpiar el control de fecha
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (idProveedorSeleccionado == 0)
+            {
+                MessageBox.Show("Debe seleccionar un proveedor de la lista para editar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            groupBoxDatos.Enabled = true;
+            btnRegistrar.Text = "Modificar";
+            btnEditar.Enabled = false;
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow filaActual = dgvProveedores.Rows[e.RowIndex];
+
+                idProveedorSeleccionado = Convert.ToInt32(filaActual.Cells["IdProveedor"].Value);
+                txtNombre.Text = filaActual.Cells["Nombre"].Value.ToString();
+                txtApellidos.Text = filaActual.Cells["Apellido"].Value.ToString();
+                txtTelefono.Text = filaActual.Cells["Telefono"].Value.ToString();
+                txtDNI.Text = filaActual.Cells["DNI"].Value.ToString();
+                txtDireccion.Text = filaActual.Cells["Direccion"].Value.ToString();
+                dtpFechaRegistro.Value = Convert.ToDateTime(filaActual.Cells["FechaRegistro"].Value);
+
+                groupBoxDatos.Enabled = true;
+            }
         }
     }
 }
