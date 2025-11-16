@@ -29,9 +29,9 @@ namespace CapaAccesoDatos
                 cmd = new SqlCommand("spListarPedidosPendientes", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
+                //SqlDataReader dr = cmd.ExecuteReader();
 
-                while (dr.Read())
+                /*while (dr.Read())
                 {
                     entPedido p = new entPedido();
                     p.IdDetalleVenta = Convert.ToInt32(dr["IdDetalleVenta"]);
@@ -40,9 +40,9 @@ namespace CapaAccesoDatos
                     p.Cantidad = Convert.ToInt32(dr["Cantidad"]);
 
                     lista.Add(p);
-                }
+                }*/
             }
-            catch (Exception e) { throw e; }
+            //catch (Exception e) { throw e; }
             finally { cmd.Connection.Close(); }
 
             return lista;
