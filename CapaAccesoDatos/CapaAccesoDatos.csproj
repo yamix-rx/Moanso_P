@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ADNotaIngreso.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="datCategoria.cs" />
     <Compile Include="datCliente.cs" />
     <Compile Include="datInsumo.cs" />
     <Compile Include="datPedido.cs" />

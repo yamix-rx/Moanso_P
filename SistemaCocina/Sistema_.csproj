@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CrudAMateriales.cs">
+    <Compile Include="CrudACategorias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CrudAMateriales.Designer.cs">
-      <DependentUpon>CrudAMateriales.cs</DependentUpon>
+    <Compile Include="CrudACategorias.Designer.cs">
+      <DependentUpon>CrudACategorias.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPedido.cs">
       <SubType>Form</SubType>
@@ -70,11 +70,11 @@
     <Compile Include="CrudVClientes.Designer.cs">
       <DependentUpon>CrudVClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="MantenedorInsumo.cs">
+    <Compile Include="CrudACInsumo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MantenedorInsumo.Designer.cs">
-      <DependentUpon>MantenedorInsumo.cs</DependentUpon>
+    <Compile Include="CrudACInsumo.Designer.cs">
+      <DependentUpon>CrudACInsumo.cs</DependentUpon>
     </Compile>
     <Compile Include="MantenerdorProveedor.cs">
       <SubType>Form</SubType>
@@ -108,8 +108,8 @@
     <Compile Include="Venta.Designer.cs">
       <DependentUpon>Venta.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CrudAMateriales.resx">
-      <DependentUpon>CrudAMateriales.cs</DependentUpon>
+    <EmbeddedResource Include="CrudACategorias.resx">
+      <DependentUpon>CrudACategorias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPedido.resx">
       <DependentUpon>FormPedido.cs</DependentUpon>
@@ -120,8 +120,8 @@
     <EmbeddedResource Include="CrudVClientes.resx">
       <DependentUpon>CrudVClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MantenedorInsumo.resx">
-      <DependentUpon>MantenedorInsumo.cs</DependentUpon>
+    <EmbeddedResource Include="CrudACInsumo.resx">
+      <DependentUpon>CrudACInsumo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MantenerdorProveedor.resx">
       <DependentUpon>MantenerdorProveedor.cs</DependentUpon>

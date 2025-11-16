@@ -42,6 +42,9 @@ namespace Yenci_parte
 
         private void button5_Click(object sender, EventArgs e)
         {
+            CrudACategorias ca = new CrudACategorias();
+            this.Hide();
+            ca.Show();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -74,7 +77,7 @@ namespace Yenci_parte
 
         private void button8_Click(object sender, EventArgs e)
         {
-            MantenedorInsumo mi = new MantenedorInsumo();
+            CrudACInsumo mi = new CrudACInsumo();
             this.Hide();
             mi.Show();
         }

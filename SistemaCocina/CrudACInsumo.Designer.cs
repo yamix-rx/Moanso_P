@@ -1,6 +1,6 @@
 ﻿namespace SistemaCocina
 {
-    partial class MantenedorInsumo
+    partial class CrudACInsumo
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -31,6 +31,8 @@
             this.lblTituloInsumos = new System.Windows.Forms.Label();
             this.dgvInsumos = new System.Windows.Forms.DataGridView();
             this.groupBoxDatos = new System.Windows.Forms.GroupBox();
+            this.cboCategoria = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
@@ -79,6 +81,8 @@
             // 
             // groupBoxDatos
             // 
+            this.groupBoxDatos.Controls.Add(this.cboCategoria);
+            this.groupBoxDatos.Controls.Add(this.label7);
             this.groupBoxDatos.Controls.Add(this.btnCancelar);
             this.groupBoxDatos.Controls.Add(this.chkActivo);
             this.groupBoxDatos.Controls.Add(this.dtpFecha);
@@ -103,9 +107,26 @@
             this.groupBoxDatos.TabStop = false;
             this.groupBoxDatos.Text = "Datos del Insumo";
             // 
+            // cboCategoria
+            // 
+            this.cboCategoria.FormattingEnabled = true;
+            this.cboCategoria.Location = new System.Drawing.Point(190, 239);
+            this.cboCategoria.Name = "cboCategoria";
+            this.cboCategoria.Size = new System.Drawing.Size(383, 33);
+            this.cboCategoria.TabIndex = 19;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(52, 247);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(111, 25);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Categoria:";
+            // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(462, 370);
+            this.btnCancelar.Location = new System.Drawing.Point(473, 382);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(133, 45);
@@ -117,7 +138,7 @@
             // chkActivo
             // 
             this.chkActivo.AutoSize = true;
-            this.chkActivo.Location = new System.Drawing.Point(154, 316);
+            this.chkActivo.Location = new System.Drawing.Point(154, 331);
             this.chkActivo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(139, 29);
@@ -127,7 +148,7 @@
             // 
             // dtpFecha
             // 
-            this.dtpFecha.Location = new System.Drawing.Point(217, 258);
+            this.dtpFecha.Location = new System.Drawing.Point(228, 280);
             this.dtpFecha.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(378, 31);
@@ -135,7 +156,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(63, 370);
+            this.btnLimpiar.Location = new System.Drawing.Point(57, 382);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(133, 45);
@@ -179,7 +200,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(52, 316);
+            this.label6.Location = new System.Drawing.Point(52, 335);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 25);
             this.label6.TabIndex = 5;
@@ -188,7 +209,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(52, 258);
+            this.label5.Location = new System.Drawing.Point(51, 286);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(164, 25);
             this.label5.TabIndex = 4;
@@ -282,12 +303,12 @@
             // btnSalir
             // 
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(824, 474);
+            this.btnSalir.Location = new System.Drawing.Point(913, 914);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(147, 44);
+            this.btnSalir.Size = new System.Drawing.Size(147, 34);
             this.btnSalir.TabIndex = 17;
-            this.btnSalir.Text = "Salir";
+            this.btnSalir.Text = "Regresar";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
@@ -303,11 +324,11 @@
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // MantenedorInsumo
+            // CrudACInsumo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1052, 921);
+            this.ClientSize = new System.Drawing.Size(1057, 945);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnModificar);
@@ -318,7 +339,7 @@
             this.Controls.Add(this.lblTituloInsumos);
             this.Controls.Add(this.btnRegistrar);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "MantenedorInsumo";
+            this.Name = "CrudACInsumo";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dgvInsumos)).EndInit();
             this.groupBoxDatos.ResumeLayout(false);
@@ -353,6 +374,8 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.ComboBox cboCategoria;
+        private System.Windows.Forms.Label label7;
     }
 }
 

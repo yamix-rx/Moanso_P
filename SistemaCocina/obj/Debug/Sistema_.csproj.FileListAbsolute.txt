@@ -9,7 +9,6 @@ C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\bin\Debug\CapaLogica.pdb
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\bin\Debug\CapaAccesoDatos.pdb
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Sistema_.csproj.AssemblyReference.cache
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\SistemaCocina.exe.config
-C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\SistemaCocina.MantenedorInsumo.resources
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\SistemaCocina.Properties.Resources.resources
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Sistema_.csproj.GenerateResource.cache
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Sistema_.csproj.CoreCompileInputs.cache
@@ -24,4 +23,5 @@ C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.Regis
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.Venta.resources
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.CrudVClientes.resources
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\SistemaForms.CrudVPlatos.resources
-C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\SistemaForms.CrudAMateriales.resources
+C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\SistemaCocina.CrudACategorias.resources
+C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\SistemaCocina.CrudACInsumo.resources

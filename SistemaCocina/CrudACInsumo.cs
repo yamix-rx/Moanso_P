@@ -9,13 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Yenci_parte;
 
 namespace SistemaCocina
 {
-    public partial class MantenedorInsumo : Form
+    public partial class CrudACInsumo : Form
     {
         private int idInsumoSeleccionado = 0;
-        public MantenedorInsumo()
+        public CrudACInsumo()
         {
             InitializeComponent();
             listarInsumo();
@@ -174,8 +175,9 @@ namespace SistemaCocina
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
-
+            MenuPrincipal menu = new MenuPrincipal();
+            this.Hide();
+            menu.Show();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
