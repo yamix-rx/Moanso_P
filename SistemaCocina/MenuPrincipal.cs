@@ -28,8 +28,8 @@ namespace Yenci_parte
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form1 Mi = new Form1();
-            Mi.ShowDialog();
+            /*Form1 Mi = new Form1();
+            Mi.ShowDialog();*/
         }
 
         private void button4_Click(object sender, EventArgs e)

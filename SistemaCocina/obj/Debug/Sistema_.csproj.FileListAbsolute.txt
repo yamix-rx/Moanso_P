@@ -20,3 +20,9 @@ C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\SistemaForms.Comp
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.DetalleVentas.resources
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\SistemaForms.Platos.resources
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.MenuPrincipal.resources
+C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.FormPedido.resources
+C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.Login.resources
+C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.MantenedorClientes.resources
+C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.MantenerdorProveedor.resources
+C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.Registro.resources
+C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.Venta.resources
