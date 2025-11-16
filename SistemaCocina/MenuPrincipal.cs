@@ -41,9 +41,6 @@ namespace Yenci_parte
 
         private void button5_Click(object sender, EventArgs e)
         {
-            DetalleVentas det = new DetalleVentas();
-            this.Hide();
-            det.Show();
         }
 
         private void label1_Click(object sender, EventArgs e)

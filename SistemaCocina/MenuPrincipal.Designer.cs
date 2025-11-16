@@ -73,7 +73,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(247, 12);
+            this.button4.Location = new System.Drawing.Point(435, 27);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(197, 49);
             this.button4.TabIndex = 3;
@@ -84,7 +84,7 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(247, 70);
+            this.button5.Location = new System.Drawing.Point(221, 230);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(197, 49);
             this.button5.TabIndex = 4;
@@ -95,7 +95,7 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(247, 126);
+            this.button6.Location = new System.Drawing.Point(435, 95);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(197, 45);
             this.button6.TabIndex = 5;
@@ -107,7 +107,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(174, 200);
+            this.label1.Location = new System.Drawing.Point(560, 417);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 26);
             this.label1.TabIndex = 6;
@@ -119,7 +119,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(461, 235);
+            this.ClientSize = new System.Drawing.Size(658, 452);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -127,7 +127,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "MenuPrincipal";
             this.Text = "MenuPrincipal";
             this.ResumeLayout(false);
