@@ -46,16 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="CompraInsumos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompraInsumos.Designer.cs">
+      <DependentUpon>CompraInsumos.cs</DependentUpon>
+    </Compile>
     <Compile Include="MantenedorInsumo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MantenedorInsumo.Designer.cs">
       <DependentUpon>MantenedorInsumo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Platos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Platos.Designer.cs">
+      <DependentUpon>Platos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CompraInsumos.resx">
+      <DependentUpon>CompraInsumos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MantenedorInsumo.resx">
       <DependentUpon>MantenedorInsumo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Platos.resx">
+      <DependentUpon>Platos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
