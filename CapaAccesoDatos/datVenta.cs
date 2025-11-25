@@ -8,10 +8,6 @@ namespace CapaAccesoDatos
 {
     public class datVenta
     {
-        // =================================================================================
-        // 1. REGISTRAR VENTA (Usando Transacción SQL)
-        // =================================================================================
-        // 🚨 CORRECCIÓN: Usar los nombres de columna reales: VentaID y ClienteID.
         public bool RegistrarVenta(entVenta venta)
         {
             using (SqlConnection cn = Conexion.Instancia.Conectar())
@@ -23,18 +19,17 @@ namespace CapaAccesoDatos
                 try
                 {
                     // 1. INSERTAR CABECERA DE VENTA (Tabla Venta)
-                    // Se usa ClienteID y la salida es VentaID
+                    // 🚀 CORRECCIÓN: Usamos ClienteID en el INSERT y VentaID en el OUTPUT.
                     string queryVenta = @"
-                        INSERT INTO Venta (ClienteID, IdUsuario, FechaVenta, TipoComprobante, TipoVenta, TotalPagar, Estado) 
+                        INSERT INTO Venta (ClienteID, FechaVenta, TipoComprobante, TipoVenta, TotalPagar, Estado) 
                         OUTPUT INSERTED.VentaID 
-                        VALUES (@IdCliente, @IdUsuario, @FechaVenta, @TipoComprobante, @TipoVenta, @TotalPagar, @Estado)";
+                        VALUES (@IdCliente, @FechaVenta, @TipoComprobante, @TipoVenta, @TotalPagar, @Estado)";
 
                     SqlCommand cmdVenta = new SqlCommand(queryVenta, cn, tr);
                     cmdVenta.CommandType = CommandType.Text;
 
-                    // Mantenemos los nombres de parámetros C# para la entidad
                     cmdVenta.Parameters.AddWithValue("@IdCliente", venta.IdCliente);
-                    cmdVenta.Parameters.AddWithValue("@IdUsuario", venta.IdUsuario);
+                    // ⚠️ IdUsuario ELIMINADO de la consulta y parámetros C#
                     cmdVenta.Parameters.AddWithValue("@FechaVenta", venta.FechaVenta);
                     cmdVenta.Parameters.AddWithValue("@TipoComprobante", venta.TipoComprobante);
                     cmdVenta.Parameters.AddWithValue("@TipoVenta", venta.TipoVenta);
@@ -44,12 +39,12 @@ namespace CapaAccesoDatos
                     // Ejecutamos y obtenemos el VentaID generado (Identity)
                     int idVentaGenerado = (int)cmdVenta.ExecuteScalar();
 
-                    // 2. INSERTAR DETALLE DE VENTA (Tabla DetalleVenta)
+                    // 2. INSERTAR DETALLE DE VENTA
                     if (idVentaGenerado > 0)
                     {
                         foreach (var item in venta.DetalleVenta)
                         {
-                            // Se asume que la FK en DetalleVenta es VentaID
+                            // 🚀 CORRECCIÓN: Usar VentaID en DetalleVenta
                             string queryDetalle = @"
                                 INSERT INTO DetalleVenta (VentaID, IdProducto, Cantidad, PrecioUnitario, Observacion)
                                 VALUES (@IdVenta, @IdProducto, @Cantidad, @PrecioUnitario, @Observacion)";
@@ -72,6 +67,7 @@ namespace CapaAccesoDatos
                     else
                     {
                         tr.Rollback();
+                        // ⚠️ Mensaje actualizado para reflejar el nombre real
                         throw new Exception("Error al obtener el VentaID generado.");
                     }
                 }
@@ -84,6 +80,8 @@ namespace CapaAccesoDatos
             }
         }
 
+        // ---------------------------------------------------------------------------------
+
         // =================================================================================
         // 2. LISTAR VENTAS (Consultar SQL)
         // =================================================================================
@@ -94,8 +92,8 @@ namespace CapaAccesoDatos
 
             using (SqlConnection cn = Conexion.Instancia.Conectar())
             {
-                // 🚀 CORRECCIÓN: Se limpia la consulta para eliminar cualquier espacio o tabulación oculta
-                // y se usa la lógica: VentaID/ClienteID en Venta, y IdCliente en Cliente.
+                // 🚀 La consulta usa los nombres reales de la tabla Venta (VentaID, ClienteID) y mapea
+                // a los nombres esperados por la CapaEntidad (IdVenta, IdCliente).
                 string query = @"
                     SELECT
                         v.VentaID AS IdVenta,
@@ -107,7 +105,7 @@ namespace CapaAccesoDatos
                     FROM
                         Venta v
                     INNER JOIN
-                        Cliente c ON v.ClienteID = c.IdCliente -- Asumiendo que la PK de Cliente es IdCliente
+                        Cliente c ON v.ClienteID = c.IdCliente -- Asume que PK de Cliente es IdCliente, basado en tu script
                     ORDER BY
                         v.FechaVenta DESC";
 
@@ -128,10 +126,12 @@ namespace CapaAccesoDatos
             return dt;
         }
 
+        // ---------------------------------------------------------------------------------
+
         // =================================================================================
         // 3. ANULAR VENTA (Eliminar de SQL)
         // =================================================================================
-        // 🚨 CORRECCIÓN: Usar los nombres de columna reales: VentaID
+        // ✅ CORRECCIÓN: Usar el nombre de columna real: VentaID
         public void AnularVenta(int idVentaAAnular)
         {
             using (SqlConnection cn = Conexion.Instancia.Conectar())
