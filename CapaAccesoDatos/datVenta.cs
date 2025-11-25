@@ -44,16 +44,16 @@ namespace CapaAccesoDatos
                     {
                         foreach (var item in venta.DetalleVenta)
                         {
-                            // 🚀 CORRECCIÓN: Usar VentaID en DetalleVenta
+                            // 🚀 CORRECCIÓN: Cambiar IdProducto por ProductoID (o el nombre real de tu BD)
                             string queryDetalle = @"
-                                INSERT INTO DetalleVenta (VentaID, IdProducto, Cantidad, PrecioUnitario, Observacion)
+                                INSERT INTO DetalleVenta (VentaID, ProductoID, Cantidad, PrecioUnitario, Observacion)
                                 VALUES (@IdVenta, @IdProducto, @Cantidad, @PrecioUnitario, @Observacion)";
 
                             SqlCommand cmdDetalle = new SqlCommand(queryDetalle, cn, tr);
                             cmdDetalle.CommandType = CommandType.Text;
 
-                            cmdDetalle.Parameters.AddWithValue("@IdVenta", idVentaGenerado); // Pasa el VentaID
-                            cmdDetalle.Parameters.AddWithValue("@IdProducto", item.IdProducto);
+                            cmdDetalle.Parameters.AddWithValue("@IdVenta", idVentaGenerado);
+                            cmdDetalle.Parameters.AddWithValue("@IdProducto", item.IdProducto); // El parámetro C# se mantiene
                             cmdDetalle.Parameters.AddWithValue("@Cantidad", item.Cantidad);
                             cmdDetalle.Parameters.AddWithValue("@PrecioUnitario", item.PrecioUnitario);
                             cmdDetalle.Parameters.AddWithValue("@Observacion", item.Observacion ?? (object)DBNull.Value);
