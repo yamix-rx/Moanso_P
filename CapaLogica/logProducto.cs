@@ -1,5 +1,6 @@
 ﻿using CapaAccesoDatos;
 using CapaEntidad;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,24 +11,37 @@ namespace CapaLogica
 {
     public class logProducto
     {
-        private datProducto Datos = new datProducto();
+        // ====================================================================
+        // 🚨 CAMBIO 1: IMPLEMENTACIÓN DEL SINGLETON
+        // ====================================================================
+
+        // Variable estática y de solo lectura para la instancia única
+        private static readonly logProducto _instancia = new logProducto();
+
+    
+
+        // Propiedad estática para acceder a la instancia única
+        public static logProducto Instancia
+        {
+            get { return _instancia; }
+        }
+
+        private datProducto Datos = new datProducto(); // Instancia de la DAL
 
         // 1. Método para Listar Productos
         public List<entProducto> ListarProductos()
         {
             try
             {
-                // Solo llama a la capa de datos
                 return Datos.ListarProductos();
             }
             catch (Exception ex)
             {
-                // Manejo de error o relanzamiento
                 throw new Exception("Error al listar productos en la capa lógica: " + ex.Message);
             }
         }
 
-        // 2. Método para Registrar Producto (con validaciones)
+        // 2. Método para Registrar Producto(con validaciones)
         public int Registrar(entProducto obj, out string Mensaje)
         {
             Mensaje = string.Empty;
@@ -37,6 +51,7 @@ namespace CapaLogica
             {
                 Mensaje = "El nombre del plato/bebida no puede ser vacío.";
             }
+            // ... (el resto de las validaciones se mantienen) ...
             else if (obj.Costo <= 0)
             {
                 Mensaje = "El costo debe ser un valor positivo.";
@@ -48,7 +63,7 @@ namespace CapaLogica
 
             if (Mensaje != string.Empty)
             {
-                return 0; // No se registra si hay errores de validación
+                return 0;
             }
             else
             {

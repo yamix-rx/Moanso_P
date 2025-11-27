@@ -13,14 +13,11 @@ namespace CapaLogica
         private static readonly logReceta _instancia = new logReceta();
         public static logReceta Instancia { get { return _instancia; } }
 
-        public List<entReceta> ListarRecetaPorProducto(int idProducto)
-        {
-            return datReceta.Instancia.ListarRecetaPorProducto(idProducto);
-        }
+        private datReceta dat = new datReceta();
 
-        public void InsertarReceta(entReceta r)
+        public List<entDetalleReceta> ListarDetallesReceta(int idProducto)
         {
-            datReceta.Instancia.InsertarReceta(r);
+            return dat.ListarDetallesReceta(idProducto);
         }
     }
 }

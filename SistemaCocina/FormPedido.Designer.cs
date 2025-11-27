@@ -32,7 +32,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblPlatoSeleccionado = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnListo = new System.Windows.Forms.Button();
             this.btnPreparar = new System.Windows.Forms.Button();
             this.dgvReceta = new System.Windows.Forms.DataGridView();
             this.dgvPedidos = new System.Windows.Forms.DataGridView();
@@ -57,7 +56,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(39, 834);
+            this.label3.Location = new System.Drawing.Point(38, 490);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(203, 25);
             this.label3.TabIndex = 16;
@@ -83,18 +82,6 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // btnListo
-            // 
-            this.btnListo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListo.Location = new System.Drawing.Point(466, 892);
-            this.btnListo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnListo.Name = "btnListo";
-            this.btnListo.Size = new System.Drawing.Size(140, 76);
-            this.btnListo.TabIndex = 13;
-            this.btnListo.Text = "Notificar Mozo";
-            this.btnListo.UseVisualStyleBackColor = true;
-            this.btnListo.Click += new System.EventHandler(this.btnListo_Click);
-            // 
             // btnPreparar
             // 
             this.btnPreparar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -103,7 +90,7 @@
             this.btnPreparar.Name = "btnPreparar";
             this.btnPreparar.Size = new System.Drawing.Size(140, 76);
             this.btnPreparar.TabIndex = 12;
-            this.btnPreparar.Text = "Descontar Stock";
+            this.btnPreparar.Text = "Pedido Preparado";
             this.btnPreparar.UseVisualStyleBackColor = true;
             this.btnPreparar.Click += new System.EventHandler(this.btnPreparar_Click);
             // 
@@ -128,6 +115,7 @@
             this.dgvPedidos.RowTemplate.Height = 24;
             this.dgvPedidos.Size = new System.Drawing.Size(989, 280);
             this.dgvPedidos.TabIndex = 10;
+            this.dgvPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedidos_CellClick);
             // 
             // label1
             // 
@@ -148,7 +136,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblPlatoSeleccionado);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btnListo);
             this.Controls.Add(this.btnPreparar);
             this.Controls.Add(this.dgvReceta);
             this.Controls.Add(this.dgvPedidos);
@@ -169,7 +156,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblPlatoSeleccionado;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnListo;
         private System.Windows.Forms.Button btnPreparar;
         private System.Windows.Forms.DataGridView dgvReceta;
         private System.Windows.Forms.DataGridView dgvPedidos;

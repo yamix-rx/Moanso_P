@@ -72,6 +72,31 @@ namespace CapaAccesoDatos
             catch (Exception e) { throw e; }
             finally { cmd.Connection.Close(); }
         }
+
+        public List<entDetalleReceta> ListarDetallesReceta(int idProducto)
+        {
+            List<entDetalleReceta> lista = new List<entDetalleReceta>();
+            using (SqlConnection cn = Conexion.Instancia.Conectar())
+            {
+                SqlCommand cmd = new SqlCommand("SP_ListarRecetaPorPlato", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    lista.Add(new entDetalleReceta
+                    {
+                        IdInsumo = Convert.ToInt32(dr["IdInsumo"]),
+                        InsumoNombre = dr["nombreInsumo"].ToString(), // ⚠️ Cuidado con la capitalización en nombreInsumo
+                        CantidadNecesaria = Convert.ToDecimal(dr["CantidadNecesaria"]),
+                        UnidadMedida = dr["unidadMedida"] != DBNull.Value ? dr["unidadMedida"].ToString() : string.Empty
+                    });
+                }
+            }
+            return lista;
+        }
     }
 
 }

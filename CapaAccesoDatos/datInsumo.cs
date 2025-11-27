@@ -151,26 +151,20 @@ namespace CapaAccesoDatos
 
             return editado;
         }
-        public void DescontarStock(int idInsumo, decimal cantidadRestar)
+        // EN CapaAccesoDatos/datInsumo.cs
+
+        public bool DescontarStock(int idInsumo, decimal cantidadDescontar)
         {
-            SqlCommand cmd = null;
-            try
+            using (SqlConnection cn = Conexion.Instancia.Conectar())
             {
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spDescontarStock", cn);
+                SqlCommand cmd = new SqlCommand("spDescontarStock", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idInsumo", idInsumo);
-                cmd.Parameters.AddWithValue("@cantidadRestar", cantidadRestar);
+                cmd.Parameters.AddWithValue("@idInsumo", idInsumo); // Usamos el nombre de parámetro de tu SP
+                cmd.Parameters.AddWithValue("@cantidadRestar", cantidadDescontar);
                 cn.Open();
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-            finally
-            {
-                cmd.Connection.Close();
+
+                // El ExecuteNonQuery devuelve el número de filas afectadas (debe ser 1)
+                return cmd.ExecuteNonQuery() > 0;
             }
         }
 
@@ -205,6 +199,8 @@ namespace CapaAccesoDatos
 
             return deshabilitado;
         }
+
+
 
         #endregion
     }
