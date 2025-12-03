@@ -3,6 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\USUARIO\\source\\repos\\Moanso_P\\SistemaCocina\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F25373E6-4D66-407B-8B1D-8868CB5D7748}|..\\..\\..\\..\\Downloads\\Yenci_parte\\Sistema.csproj|c:\\users\\usuario\\downloads\\yenci_parte\\venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F25373E6-4D66-407B-8B1D-8868CB5D7748}|..\\..\\..\\..\\Downloads\\Yenci_parte\\Sistema.csproj|c:\\users\\usuario\\downloads\\yenci_parte\\detalleventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F25373E6-4D66-407B-8B1D-8868CB5D7748}|..\\..\\..\\..\\Downloads\\Yenci_parte\\Sistema.csproj|c:\\users\\usuario\\downloads\\yenci_parte\\mantenerdorproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6FE0CDFC-F778-4F0B-810B-AF1682E2908B}|..\\CapaAccesoDatos\\CapaAccesoDatos.csproj|c:\\users\\usuario\\source\\repos\\moanso_p\\capaaccesodatos\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -16,7 +25,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -24,7 +33,43 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Venta.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\Yenci_parte\\Venta.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Downloads\\Yenci_parte\\Venta.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\Yenci_parte\\Venta.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\Downloads\\Yenci_parte\\Venta.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T01:44:57.029Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "DetalleVentas.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\Yenci_parte\\DetalleVentas.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Downloads\\Yenci_parte\\DetalleVentas.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\Yenci_parte\\DetalleVentas.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\Downloads\\Yenci_parte\\DetalleVentas.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T01:44:52.959Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MantenerdorProveedor.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\Yenci_parte\\MantenerdorProveedor.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Downloads\\Yenci_parte\\MantenerdorProveedor.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Downloads\\Yenci_parte\\MantenerdorProveedor.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\Downloads\\Yenci_parte\\MantenerdorProveedor.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T01:44:51.646Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "MenuPrincipal.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\USUARIO\\Downloads\\Yenci_parte\\MenuPrincipal.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Downloads\\Yenci_parte\\MenuPrincipal.cs",
@@ -35,7 +80,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Conexion.cs",
               "DocumentMoniker": "C:\\Users\\USUARIO\\source\\repos\\Moanso_P\\CapaAccesoDatos\\Conexion.cs",
               "RelativeDocumentMoniker": "..\\CapaAccesoDatos\\Conexion.cs",

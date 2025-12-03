@@ -29,8 +29,9 @@ namespace Yenci_parte
 
         private void button2_Click(object sender, EventArgs e)
         {
-            /*Form1 Mi = new Form1();
-            Mi.ShowDialog();*/
+            CrudACInsumo Mi =  new CrudACInsumo();
+            this.Hide();
+            Mi.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
