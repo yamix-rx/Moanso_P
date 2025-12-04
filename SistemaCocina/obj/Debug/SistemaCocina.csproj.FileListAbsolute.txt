@@ -34,3 +34,29 @@ C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\SistemaCocina.csp
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\SistemaC.7AFF525B.Up2Date
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\SistemaCocina.exe
 C:\Users\USUARIO\Source\Repos\Moanso_P\SistemaCocina\obj\Debug\SistemaCocina.pdb
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\bin\Debug\SistemaCocina.exe.config
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\bin\Debug\SistemaCocina.exe
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\bin\Debug\SistemaCocina.pdb
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\bin\Debug\CapaEntidad.dll
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\bin\Debug\CapaLogica.dll
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\bin\Debug\CapaAccesoDatos.dll
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\bin\Debug\CapaEntidad.pdb
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\bin\Debug\CapaLogica.pdb
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\bin\Debug\CapaAccesoDatos.pdb
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\obj\Debug\SistemaCocina.csproj.AssemblyReference.cache
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\obj\Debug\SistemaCocina.CrudACategorias.resources
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.FormPedido.resources
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.Login.resources
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.CrudVClientes.resources
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\obj\Debug\SistemaCocina.CrudACInsumo.resources
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.CrudAProveedor.resources
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.MenuPrincipal.resources
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\obj\Debug\SistemaForms.CrudVPlatos.resources
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\obj\Debug\SistemaCocina.Properties.Resources.resources
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.Registro.resources
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\obj\Debug\Yenci_parte.Venta.resources
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\obj\Debug\SistemaCocina.csproj.GenerateResource.cache
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\obj\Debug\SistemaCocina.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\obj\Debug\SistemaC.7AFF525B.Up2Date
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\obj\Debug\SistemaCocina.exe
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\SistemaCocina\obj\Debug\SistemaCocina.pdb

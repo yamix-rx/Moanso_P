@@ -20,3 +20,14 @@ C:\Users\USUARIO\Source\Repos\Moanso_P\CapaLogica\obj\Debug\CapaLogica.csproj.Co
 C:\Users\USUARIO\Source\Repos\Moanso_P\CapaLogica\obj\Debug\CapaLogica.csproj.Up2Date
 C:\Users\USUARIO\Source\Repos\Moanso_P\CapaLogica\obj\Debug\CapaLogica.dll
 C:\Users\USUARIO\Source\Repos\Moanso_P\CapaLogica\obj\Debug\CapaLogica.pdb
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\CapaLogica\bin\Debug\CapaLogica.dll
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\CapaLogica\bin\Debug\CapaLogica.pdb
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\CapaLogica\bin\Debug\CapaAccesoDatos.dll
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\CapaLogica\bin\Debug\CapaEntidad.dll
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\CapaLogica\bin\Debug\CapaAccesoDatos.pdb
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\CapaLogica\bin\Debug\CapaEntidad.pdb
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\CapaLogica\obj\Debug\CapaLogica.csproj.AssemblyReference.cache
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\CapaLogica\obj\Debug\CapaLogica.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\CapaLogica\obj\Debug\CapaLogica.csproj.Up2Date
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\CapaLogica\obj\Debug\CapaLogica.dll
+C:\Users\USUARIO\Downloads\block2\Doc-repaso\Examen final -COMPU.GRAFICA\Moanso_P\CapaLogica\obj\Debug\CapaLogica.pdb

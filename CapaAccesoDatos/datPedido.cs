@@ -34,17 +34,17 @@ namespace CapaAccesoDatos
 
                     while (dr.Read())
                     {
-                        // ✅ CORRECCIÓN: Leer los resultados por los ALIAS del SP, no por los nombres de la tabla
+                        //  CORRECCIÓN: Leer los resultados por los ALIAS del SP, no por los nombres de la tabla
                         lista.Add(new entPedido
                         {
                             // Alias devueltos por el SP:
-                            IdDetalleVenta = Convert.ToInt32(dr["IdDetalleVenta"]), // Alias: DV.DetalleventaID AS IdDetalleVenta
-                            IdProducto = Convert.ToInt32(dr["IdProducto"]),       // Alias: DV.ProductoID AS IdProducto
+                            IdDetalleVenta = Convert.ToInt32(dr["IdDetalleVenta"]), 
+                            IdProducto = Convert.ToInt32(dr["IdProducto"]),       
 
-                            Plato = dr["Plato"].ToString(),                       // Alias: P.Nombre AS Plato
+                            Plato = dr["Plato"].ToString(),                     
                             Cantidad = Convert.ToInt32(dr["Cantidad"]),
 
-                            IdVenta = Convert.ToInt32(dr["IdVenta"]),             // Alias: V.VentaID AS IdVenta
+                            IdVenta = Convert.ToInt32(dr["IdVenta"]),            
                             Estado = dr["Estado"].ToString()
                         });
                     }
