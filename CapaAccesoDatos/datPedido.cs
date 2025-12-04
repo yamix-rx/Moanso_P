@@ -37,7 +37,7 @@ namespace CapaAccesoDatos
                         //  CORRECCIÓN: Leer los resultados por los ALIAS del SP, no por los nombres de la tabla
                         lista.Add(new entPedido
                         {
-                            // Alias devueltos por el SP:
+                            
                             IdDetalleVenta = Convert.ToInt32(dr["IdDetalleVenta"]), 
                             IdProducto = Convert.ToInt32(dr["IdProducto"]),       
 
@@ -58,7 +58,7 @@ namespace CapaAccesoDatos
             return lista;
         }
 
-        // 🚨 Agregamos el método para marcar como listo (Notificar Mozo) que usa el SP spMarcarPedidoListo
+        //  Agregamos el método para marcar como listo (Dar aviso a Mozo) que usa el SP spMarcarPedidoListo
         public bool MarcarPedidoListo(int idVenta)
         {
             using (SqlConnection cn = Conexion.Instancia.Conectar())

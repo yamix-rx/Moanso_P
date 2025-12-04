@@ -6,7 +6,7 @@
       "AbsoluteMoniker": "D:0:0:{6FE0CDFC-F778-4F0B-810B-AF1682E2908B}|..\\CapaAccesoDatos\\CapaAccesoDatos.csproj|c:\\users\\usuario\\downloads\\block2\\doc-repaso\\examen final -compu.grafica\\moanso_p\\capaaccesodatos\\datpedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9D88A9D5-5421-45A5-969B-069EAB46F3EE}|SistemaCocina.csproj|c:\\users\\usuario\\downloads\\block2\\doc-repaso\\examen final -compu.grafica\\moanso_p\\sistemacocina\\venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{9D88A9D5-5421-45A5-969B-069EAB46F3EE}|SistemaCocina.csproj|C:\\Users\\USUARIO\\Downloads\\block2\\Doc-repaso\\Examen final -COMPU.GRAFICA\\Moanso_P\\SistemaCocina\\venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9D88A9D5-5421-45A5-969B-069EAB46F3EE}|SistemaCocina.csproj|solutionrelative:venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -39,7 +39,7 @@
               "RelativeDocumentMoniker": "..\\CapaAccesoDatos\\datPedido.cs",
               "ToolTip": "C:\\Users\\USUARIO\\Downloads\\block2\\Doc-repaso\\Examen final -COMPU.GRAFICA\\Moanso_P\\CapaAccesoDatos\\datPedido.cs",
               "RelativeToolTip": "..\\CapaAccesoDatos\\datPedido.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAgwC4AAABRAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAYwCYAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-03T21:58:14.269Z",
               "EditorCaption": ""
@@ -53,8 +53,7 @@
               "ToolTip": "C:\\Users\\USUARIO\\Downloads\\block2\\Doc-repaso\\Examen final -COMPU.GRAFICA\\Moanso_P\\SistemaCocina\\Venta.cs [Dise\u00F1o]",
               "RelativeToolTip": "Venta.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T21:50:54.506Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-12-03T21:50:54.506Z"
             },
             {
               "$type": "Document",
